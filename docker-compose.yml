@@ -1,0 +1,31 @@
+services:
+  backend: 
+    build: ./backend
+    command: gunicorn conf.wsgi -b 0.0.0.0:8000
+    ports: 
+      - "8000:8000"
+    volumes:
+      - ./backend:/user/src/app/backend
+    depends_on:
+      - db
+  db:
+    image: postgres:13-alpine
+    ports:
+      - "5432:5432"
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=postgres"
+  frontend:
+    build: ./frontend
+    command: npm run serve
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/usr/src/app/frontend/
+      - /usr/src/app/frontend/node_modules/
+
+volumes:
+  postgres_data:
