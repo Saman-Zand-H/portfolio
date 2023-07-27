@@ -1,6 +1,7 @@
 from uuid import uuid4
 from django.db import models
 from django.utils import timezone
+from django.utils.functional import cached_property
 from django.contrib.auth.models import (AbstractBaseUser, 
                                         Permission, 
                                         BaseUserManager)
@@ -100,11 +101,11 @@ class UserManager(BaseUserManager):
 
 
 class UserModel(AbstractBaseUser, Permission):
-    uuid = models.UUIDField(defualt=uuid4,
+    uuid = models.UUIDField(default=uuid4,
                             auto_created=True,
                             unique=True,
                             editable=False)
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, unique=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     gender = models.CharField(
@@ -114,17 +115,19 @@ class UserModel(AbstractBaseUser, Permission):
         blank=True
     )
     picture = models.ImageField()
-    is_active = models.BooleanField(defualt=True)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    
+    objects = UserManager()
     
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["first_name", "last_name"]
     
-    @property
+    @cached_property
     def name(self):
         return f"{self.first_name} {self.last_name}"
 
     def __str__(self):
-        return f"@{self.username} - {self.name}"
+        return f"@{self.username} - {self.name()}"
     
