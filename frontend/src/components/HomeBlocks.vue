@@ -27,7 +27,7 @@
             </div>
             <div class="gap-2 grid grid-cols-1 md:grid-cols-2 row-span-5 bg-transparent text-center">
                 <div class="h-full">
-                    <img src="../assets/saman.jpg" class="rounded-3xl h-full object-fill">
+                    <img src="../assets/saman.jpg" class="rounded-3xl object-fill">
                 </div>
                 <div class="rounded-3xl bg-transparent grid gap-3 custom-grid-row-5">
                     <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6">
@@ -55,12 +55,14 @@
         <div class="rounded-3xl col-span-3 bg-zinc-800/70 row text-white p-6 text-2xl text-left">
             <div class="flex justify-between">
                 <b>Projects Portfolio</b>
-                <span class="text-zinc-400">
+                <span class="text-zinc-400 hover:cursor-pointer hover:text-zinc-400/80">
                     View All
                 </span>
             </div>
-            <div class="mt-2">
-                <ProjectPortfolioCard backgroundName="logo.png" text="Read More" />
+            <div class="mt-2 flex flex-row gap-2">
+                <ProjectPortfolioCard backgroundName="logo.png" />
+                <ProjectPortfolioCard backgroundName="logo.png" />
+                <ProjectPortfolioCard backgroundName="logo.png" />
             </div>
         </div>
         <div class="rounded-3xl col-span-2 bg-zinc-800/70 text-white p-6 text-xl text-left">
@@ -68,7 +70,7 @@
                 <b>About</b>
                 <span class="text-zinc-400">Resume</span>
             </div>
-            <div class="mt-2 text-base text-zinc-300">
+            <div class="mt-2 text-sm text-zinc-300">
                 <small>Hi, I'm an accomplished Full-Stack Developer with 4 years of hands-on experience in Python. During this time, I've successfully delivered a range of projects, from web applications to backend systems, which have deepened my expertise and proficiency in Python development. Additionally, I have 1 year of proven experience in Vue.js, creating engaging user interfaces. My dedication to innovation and problem-solving drives me to stay updated with the latest technologies. Eager to contribute my skills to impactful projects and collaborate with dynamic teams. Samples available upon request. Let's achieve excellence together!</small>
             </div>
         </div>
@@ -76,11 +78,15 @@
 </template>
 
 <style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
     .custom-grid-row-6 {
         grid-template-rows: repeat(6, minmax(0, .2fr));
     }
     .custom-grid-row-5 {
         grid-template-rows: repeat(5, minmax(0, .2fr));
+    }
+    div {
+        font-family: 'Space Mono', monospace
     }
 </style>
 
