@@ -12,8 +12,8 @@ class CV(models.Model):
     location = models.CharField(max_length=50, default=_("Mashhad"))
     
     def save(self, *args, **kwargs):
-        if CV.objects.count() != 0:
-            super().save(*args, **kwargs)
+        if CV.objects.count() == 0:
+            return super().save(*args, **kwargs)
         raise ValidationError(_("CV object already exists."))
 
 

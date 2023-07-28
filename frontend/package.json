@@ -7,13 +7,17 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "autoprefixer": "^10",
+    "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "flowbite": "^1.7.0",
     "flowbite-vue": "^0.0.16",
+    "https": "^1.0.0",
     "postcss": "^8",
     "register-service-worker": "^1.7.2",
     "tailwindcss": "^3",
+    "url": "^0.11.1",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.3",

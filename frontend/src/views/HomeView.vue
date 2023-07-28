@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-full bg-zinc-950 p-5">
+    <div class="w-full h-full relative bg-zinc-950">
         <HomeBlocks />
     </div>
 </template>
