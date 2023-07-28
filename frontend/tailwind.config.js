@@ -988,6 +988,6 @@ module.exports = {
         },
     },
     plugins: [
-        required('flowbite/plugin')
+        require('flowbite/plugin')
     ],
 }
