@@ -10,8 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
 import os, sys
+from pathlib import Path
+from environs import Env
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,10 +32,22 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = 'django-insecure-knb8h8w!zv%4=4kff2h60)n=-%e(c6sn4j_@s$@cbo2-ee(0u#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', 1)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "backend",
+    "172.17.0.1",
+    "localhost"
+]
 
+SITE_ID = 1
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "https://localhost:8080",
+    "https://frontend:8080",
+    "http://frontend:8080",
+]
 
 # Application definition
 
@@ -45,6 +61,7 @@ INSTALLED_APPS = [
     
     'allauth',
     'allauth.account',
+    'corsheaders',
     'rest_framework',
     
     'users.apps.UsersConfig',
@@ -55,6 +72,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
