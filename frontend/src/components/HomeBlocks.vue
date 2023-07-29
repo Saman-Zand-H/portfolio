@@ -33,7 +33,7 @@
                 </div>
                 <div class="gap-2 grid grid-cols-1 md:grid-cols-2 row-span-5 bg-transparent text-center">
                     <div class="h-full">
-                        <img :src="image" class="rounded-3xl object-fill">
+                        <img :src="cv.image" class="rounded-3xl object-fill">
                     </div>
                     <div class="rounded-3xl bg-transparent grid gap-3 custom-grid-row-5">
                         <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6" style="font-size: 1.3vw">
@@ -43,7 +43,7 @@
                         <div class="row-span-3 flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-4" style="font-size: 1.2vw">
                             <div class="flex justify-between w-full px-2">
                                 <span>Based in :</span>
-                                <b>{{ location }}</b>
+                                <b>{{ cv.location }}</b>
                             </div>
                             <img src="../assets/mashhadMap.png" class="rounded-3xl w-full aspect-auto">
                         </div>
@@ -66,9 +66,7 @@
                     </span>
                 </div>
                 <div class="mt-2 flex flex-row gap-2">
-                    <ProjectPortfolioCard backgroundName="logo.png" />
-                    <ProjectPortfolioCard backgroundName="logo.png" />
-                    <ProjectPortfolioCard backgroundName="logo.png" />
+                    <ProjectPortfolioCard v-if="!isEmpty(projects)" v-for="project in projects" :key="project.slug" :backgroundName="project.images[0].image" />
                 </div>
             </div>
             <div class="rounded-3xl col-span-2 bg-zinc-800/70 text-white p-6 text-xl text-left">
@@ -77,7 +75,7 @@
                     <span class="text-zinc-400">Resume</span>
                 </div>
                 <div class="mt-2 text-sm text-zinc-300">
-                    <small>{{ about }}</small>
+                    <small>{{ cv.about }}</small>
                 </div>
             </div>
         </div>
@@ -105,42 +103,43 @@
 
 <script lang="ts">
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
+import { cvInterface, projectsInterface } from '@/store/index'
 import { Vue, Options } from 'vue-class-component';
 import HomeSidebar from './HomeSidebar.vue';
-import axios from 'axios';
+import { mapState, mapActions } from 'vuex';
+import isEmpty from 'lodash/isEmpty'
 
 @Options({
     components: {
         ProjectPortfolioCard,
         HomeSidebar
     },
+    computed: {
+        ...mapState(["cv", "projects"])
+    },
+    methods: {
+        ...mapActions(["update_cv", "update_projects"])
+    },
     data() {
         return {
-            about: "",
-            location: "",
-            image: "",
             isActive: false
         }
     },
-    async beforeMount() {
-        const url = "/api/v1/cv";
-        try {
-            const res = await axios.get(url);
-            if (res.status === 200) {
-                this.about = res.data[0].about;
-                this.location = res.data[0].location;
-                this.image = res.data[0].image;
-            }
-        } catch (error) {
-            console.error(error)
+    setup() {
+        return {
+            isEmpty
         }
+    },
+    async beforeMount() {
+        await this.update_cv()
+        await this.update_projects()
     }
 })
 
 export default class HomeBlocks extends Vue {
-    about!: string
-    image!: string
-    location!: string
+    cv!: cvInterface
+    projects!: Array<projectsInterface>
     isActive!: boolean
+    isEmpty!: isEmpty
 }
 </script>
