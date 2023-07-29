@@ -29,7 +29,7 @@
             <div class="w-full grid custom-grid-row-6 gap-16 xl:gap-1 bg-transparent items-start">
                 <div class="rounded-3xl row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white" style="font-size: 1.7vw">
                     <span class="font-sans">SamanZND</span>
-                    <button type="button" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
+                    <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
                 </div>
                 <div class="gap-2 grid grid-cols-1 md:grid-cols-2 row-span-5 bg-transparent text-center">
                     <div class="h-full">
@@ -48,10 +48,10 @@
                             <img src="../assets/mashhadMap.png" class="rounded-3xl w-full aspect-auto">
                         </div>
                         <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6">
-                            <span><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-github bg-slate-800" style="font-size: 2vw"></i></span>
-                            <span><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-linkedin bg-blue-900" style="font-size: 2vw"></i></span>
-                            <span><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-telegram bg-cyan-700" style="font-size: 2vw"></i></span>
-                            <span><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700" style="font-size: 2vw"></i></span>
+                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-github bg-slate-800" style="font-size: 2vw"></i></a>
+                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-linkedin bg-blue-900" style="font-size: 2vw"></i></a>
+                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-telegram bg-cyan-700" style="font-size: 2vw"></i></a>
+                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] py-1 px-2 lg:py-2 lg:px-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700" style="font-size: 2vw"></i></a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
             <div class="rounded-3xl col-span-3 bg-zinc-800/70 row text-white p-6 text-left" style="font-size: 1.8vw">
                 <div class="flex justify-between">
                     <b>Projects Portfolio</b>
-                    <span class="text-zinc-400 hover:cursor-pointer hover:text-zinc-400/80">
+                    <span class="text-zinc-400 transition-colors duration-200 hover:cursor-pointer hover:text-zinc-400/80">
                         View All
                     </span>
                 </div>
