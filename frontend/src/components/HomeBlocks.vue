@@ -8,6 +8,7 @@
                     Bringing Your Ideas To Life Through a FullStack Development
                     <span class="rounded-full bg-violet-500 text-sm py-2 px-3 ms-3">
                         Hire me
+                        
                     </span>
                 </div>
                 <div class="grid grid-cols-3 gap-4 row-span-3 xl:row-span-3 h-full w-full bg-transparent text-center">
