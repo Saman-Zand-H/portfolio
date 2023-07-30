@@ -66,7 +66,7 @@
                     </span>
                 </div>
                 <div class="mt-2 flex flex-row gap-2">
-                    <ProjectPortfolioCard v-if="!isEmpty(projects)" v-for="project in projects" :key="project.slug" :backgroundName="project.images[0].image" />
+                    <ProjectPortfolioCard v-for="project in projects" v-if="!isEmpty(project.images)"  :key="project.slug" :backgroundName="project.images[0].image" />
                 </div>
             </div>
             <div class="rounded-3xl col-span-2 bg-zinc-800/70 text-white p-6 text-xl text-left">
@@ -107,7 +107,8 @@ import { cvInterface, projectsInterface } from '@/store/index'
 import { Vue, Options } from 'vue-class-component';
 import HomeSidebar from './HomeSidebar.vue';
 import { mapState, mapActions } from 'vuex';
-import isEmpty from 'lodash/isEmpty'
+// @ts-ignore
+import isEmpty from 'lodash/isEmpty';
 
 @Options({
     components: {
