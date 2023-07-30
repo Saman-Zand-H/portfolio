@@ -22,17 +22,9 @@ export default createStore({
         cv: {
             about: "",
             image: "",
-            location: "",
+            location: ""
         },
-        projects: {
-            name: "",
-            explanations: "",
-            images: [],
-            slug: "",
-            technologies: [],
-            started_at: "",
-            ended_at: ""
-        },
+        projects: new Array<projectsInterface>(),
     },
     getters: {},
     mutations: {
@@ -41,14 +33,8 @@ export default createStore({
             state.cv.image = payload.image
             state.cv.location = payload.location
         },
-        UPDATE_PROJECTS(state, payload: projectsInterface) {
-            state.projects.name = payload.name
-            state.projects.explanations = payload.explanations
-            state.projects.images = payload.images
-            state.projects.slug = payload.slug
-            state.projects.technologies = payload.technologies
-            state.projects.started_at = payload.started_at
-            state.projects.ended_at = payload.ended_at
+        UPDATE_PROJECTS(state, payload: Array<projectsInterface>) {
+            state.projects = payload
         }
     },
     actions: {

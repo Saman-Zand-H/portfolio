@@ -4,7 +4,7 @@
                  'aspect-square flex scale-75 hover:shadow-lg hover:scale-[85%] hover:cursor-pointer',
                  'duration-300 transition-all flex-col justify-center',
                  'text-center items-center p-5 bg-contain shadow-md']"
-        :style="backgroundName ? `background-image: url(${require('../assets/'+backgroundName)})` : ''"
+        :style="backgroundUrl ? `background-image: url(${backgroundUrl})` : ''"
     >
     </div>
 </template>
@@ -14,7 +14,7 @@
 
     @Options({
         props: {
-            backgroundName: {
+            backgroundUrl: {
                 type: String,
                 required: false,
                 default: null
@@ -23,7 +23,7 @@
     })
 
     export default class ProjectPortfolioCard extends Vue {
-        backgroundName!: String
+        backgroundUrl!: String
         text!: String
     }
 </script>

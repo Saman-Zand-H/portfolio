@@ -1,8 +1,16 @@
+import os
 from uuid import uuid4
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.core.exceptions import ValidationError
+
+
+def image_validator(file):
+    name, ext = os.path.splitext(file.name)
+    valid_exts = [".svg", ".png", ".jpg", ".jpeg"]
+    if ext.lower() not in valid_exts:
+        raise ValidationError("invalid image was uploaded.")
 
 
 # this is gonna be a singletone model
@@ -36,14 +44,18 @@ class Image(models.Model):
 
 class Technology(models.Model):
     name = models.CharField(max_length=20)
-    icon = models.ImageField(upload_to="technologies",
-                             blank=True,
-                             null=True)
+    icon = models.FileField(upload_to="technologies",
+                            blank=True,
+                            null=True,
+                            validators=[image_validator])
     timestamp = models.DateTimeField(auto_now=True)
     uuid = models.UUIDField(default=uuid4,
                             editable=False,
                             unique=True,
                             auto_created=True)
+    
+    class Meta:
+        verbose_name_plural = "Technologies"
     
     def __str__(self):
         return self.name

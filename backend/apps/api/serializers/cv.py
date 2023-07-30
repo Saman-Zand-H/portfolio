@@ -18,15 +18,17 @@ class ProjectSerializer(serializers.ModelSerializer):
         exclude = ["id", "timestamp"]
         
     def get_technologies(self, obj):
+        request = self.context.get("request")
         return [
-            {"name": i.name, "icon": i.icon}
+            {"name": i.name, "icon": request.build_absolute_uri(i.icon.url)}
             for i in obj.technologies.all()
         ]
         
     def get_images(self, obj):
+        request = self.context.get("request")
         return [
             {
-                "image": i.image, 
+                "image": request.build_absolute_uri(i.image.url), 
                 "alt": i.alt
             }
             for i in obj.images.all()
