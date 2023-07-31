@@ -20,7 +20,11 @@ class ProjectSerializer(serializers.ModelSerializer):
     def get_technologies(self, obj):
         request = self.context.get("request")
         return [
-            {"name": i.name, "icon": request.build_absolute_uri(i.icon.url)}
+            {
+                "name": i.name, 
+                "icon": request.build_absolute_uri(i.icon.url), 
+                "url": i.url
+            }
             for i in obj.technologies.all()
         ]
         

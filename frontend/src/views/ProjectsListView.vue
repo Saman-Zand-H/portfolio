@@ -1,11 +1,39 @@
 <template>
-    <div>
-        
+    <div class="bg-zinc-950 max-h-full min-h-screen w-full p-5">
+        <HomeNavbar />
+        <main class="my-3" v-for="project in projects">
+            <ProjectCard :project="project" />
+        </main>
     </div>
 </template>
 
-<script lang="ts">
-    import { Options, Vue } from 'vue-class-component';
+<style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+    * {
+        font-family: 'Space Mono', monospace
+    }
+</style>
 
-    export default class ProjectsListView extends Vue {}
+<script lang="ts">
+    import { mapActions, mapState } from 'vuex';
+    import { defineComponent } from 'vue';
+    import HomeNavbar from '@/components/HomeNavbar.vue';
+    import ProjectCard from '@/components/ProjectCard.vue';
+
+    export default defineComponent({
+        name: "ProjectsListView",
+        components: {
+            HomeNavbar,
+            ProjectCard
+        },
+        methods: {
+            ...mapActions(["update_projects"])
+        },
+        computed: {
+            ...mapState(["projects"])
+        },
+        async beforeMount() {
+            await this.update_projects()
+        }
+    })
 </script>

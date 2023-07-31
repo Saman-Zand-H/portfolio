@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 
 def image_validator(file):
     name, ext = os.path.splitext(file.name)
-    valid_exts = [".svg", ".png", ".jpg", ".jpeg"]
+    valid_exts = [".svg", ".png", ".jpg", ".jpeg", ".ico"]
     if ext.lower() not in valid_exts:
         raise ValidationError("invalid image was uploaded.")
 
@@ -49,6 +49,8 @@ class Technology(models.Model):
                             null=True,
                             validators=[image_validator])
     timestamp = models.DateTimeField(auto_now=True)
+    url = models.URLField(blank=True,
+                          null=True)
     uuid = models.UUIDField(default=uuid4,
                             editable=False,
                             unique=True,

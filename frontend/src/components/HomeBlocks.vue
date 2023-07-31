@@ -50,10 +50,10 @@
                             </div>
                         </div>
                         <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 sm:py-3 lg:py-0">
-                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 lg:py-2 lg:px-3 fa-github bg-slate-800 text-xl"></i></a>
-                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 lg:py-2 lg:px-3 fa-linkedin bg-blue-900 text-xl"></i></a>
-                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 lg:py-2 lg:px-3 fa-telegram bg-cyan-700 text-xl"></i></a>
-                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 lg:py-2 lg:px-3 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-xl"></i></a>
+                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-github bg-slate-800 text-2xl"></i></a>
+                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-linkedin bg-blue-900 text-2xl"></i></a>
+                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-telegram bg-cyan-700 text-2xl"></i></a>
+                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-2xl"></i></a>
                         </div>
                     </div>
                 </div>
@@ -63,9 +63,9 @@
             <div class="rounded-3xl col-span-3 bg-zinc-800/70 row text-white p-6 text-left" style="font-size: 1.8vw">
                 <div class="flex justify-between">
                     <b>Projects Portfolio</b>
-                    <span class="text-zinc-400 transition-colors duration-200 hover:cursor-pointer hover:text-zinc-400/80">
+                    <router-link :to="{ name: 'projects' }" class="text-zinc-400 transition-colors duration-200 hover:text-zinc-400/80">
                         View All
-                    </span>
+                    </router-link>
                 </div>
                 <div class="mt-2 flex flex-row gap-2 overflow-x-auto">
                     <ProjectPortfolioCard v-if="!isEmpty(projects)" v-for="project in projects" :key="project.slug" :backgroundUrl="project.images[0].image" />
@@ -86,7 +86,7 @@
 
 <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
-    div {
+    * {
         font-family: 'Space Mono', monospace
     }
 </style>
@@ -99,7 +99,6 @@
 
 <script lang="ts">
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
-import { cvInterface, projectsInterface } from '@/store/index'
 import { defineComponent } from 'vue';
 import HomeSidebar from './HomeSidebar.vue';
 import { mapState, mapActions } from 'vuex';

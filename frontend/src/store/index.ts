@@ -10,9 +10,9 @@ export interface cvInterface {
 export interface projectsInterface {
     name: string,
     explanations: string,
-    images: [],
+    images: Array<{image: string, alt: string}>,
     slug: string,
-    technologies: [],
+    technologies: Array<{icon: string, name: string, url: string}>,
     started_at: string,
     ended_at: string,
 }
