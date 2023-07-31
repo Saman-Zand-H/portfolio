@@ -33,7 +33,7 @@
                     Technologies
                 </h2>
                 <div class="flex flex-wrap gap-3 p-5 justify-center">
-                    <a class="rounded-2xl bg-zinc-100/20 p-2 hover:bg-zinc-100/10 transition-colors duration-200" v-for="technology in project?.technologies" :href="technology.url">
+                    <a class="rounded-2xl flex flex-col items-center justify-center bg-zinc-100/20 p-2 hover:bg-zinc-100/10 transition-colors duration-200" v-for="technology in project?.technologies" :href="technology.url">
                         <img width="50" height="60" :src="technology.icon" :alt="technology.name">
                     </a>
                 </div>
