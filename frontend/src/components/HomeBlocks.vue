@@ -4,25 +4,27 @@
     <main class="p-5">
         <div class="grid grid-cols-1 w-full md:grid-cols-2 gap-2">
             <div class="bg-transparent grid grid-rows-2 xl:grid-rows-6 gap-2">
-                <div class="rounded-3xl text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] md:leading-none" style="font-size: 3.6vw">
-                    Bringing Your Ideas To Life Through a FullStack Development
-                    <span class="rounded-full bg-violet-500 hover:bg-violet-500/80 hover:cursor-pointer transition-colors duration-200 py-2 px-3 ms-3" style="font-size: 1.3vw">
+                <div class="rounded-3xl flex flex-wrap gap-x-3 items-bae text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] md:leading-none">
+                    <span class="text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
+                        {{ word }}
+                    </span>
+                    <span class="rounded-full mt-2 bg-violet-500 hover:bg-violet-500/80 hover:cursor-pointer transition-colors duration-200 py-1 px-3 ms-2 flex items-center">
                         Hire me
-                        
+                        &#128075;
                     </span>
                 </div>
                 <div class="grid grid-cols-3 gap-4 row-span-1 xl:row-span-3 h-full w-full bg-transparent text-center">
                     <div class="bg-green-500 rounded-3xl px-2 flex flex-col gap-2 items-center justify-center text-white">
-                        <span class="font-bold" style="font-size: 3vw">1</span>
-                        <small style="font-size: 1.05vw">Year of Experince in Vue.js</small>
+                        <span class="font-bold text-2xl">1</span>
+                        <small class="text-xs">Year of Experince in Vue.js</small>
                     </div>
                     <div class="bg-amber-300 rounded-3xl px-2 flex items-center justify-center text-black flex-col gap-2">
-                        <span class="font-bold" style="font-size: 2.7vw">4+</span>
-                        <small style="font-size: 1.05vw">Years of Experince in python</small>
+                        <span class="font-bold text-2xl">+4</span>
+                        <small class="text-xs">Years of Experince in python</small>
                     </div>
                     <div class="bg-rose-400 rounded-3xl px-2 flex items-center justify-center text-white flex-col gap-2">
-                        <span class="font-bold" style="font-size: 2.7vw">10+</span>
-                        <small style="font-size: 1.05vw">Handled Projects</small>
+                        <span class="font-bold text-2xl">+10</span>
+                        <small class="text-xs">Handled Projects</small>
                     </div>
                 </div>
             </div>
@@ -36,11 +38,11 @@
                         <img class="md:hidden w-full h-fit" :src="cv.image">
                     </div>
                     <div class="rounded-3xl w-full md:w-1/2 bg-transparent grid grid-cols-1 gap-3">
-                        <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-6 sm:py-3 lg:py-0" style="font-size: 1.3vw">
+                        <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-6 sm:py-3 lg:py-0">
                             <span>Name :</span>
                             <b class="font-bold">Saman Zand</b>
                         </div>
-                        <div class="row-span-3 flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-4" style="font-size: 1.2vw">
+                        <div class="row-span-3 flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-4">
                             <div class="flex justify-between w-full px-2">
                                 <span>Based in :</span>
                                 <b>{{ cv.location }}</b>
@@ -49,19 +51,47 @@
                                 <img class="w-full h-full md:hidden" src="../assets/mashhadMap.png">
                             </div>
                         </div>
-                        <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 sm:py-3 lg:py-0">
-                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-github bg-slate-800 text-2xl"></i></a>
-                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-linkedin bg-blue-900 text-2xl"></i></a>
-                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-telegram bg-cyan-700 text-2xl"></i></a>
-                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 py-2 px-3 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-2xl"></i></a>
+                        <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-5 sm:py-3 lg:py-0">
+                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-github bg-slate-800 text-2xl"></i></a>
+                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-linkedin bg-blue-900 text-2xl"></i></a>
+                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-telegram bg-cyan-700 text-2xl"></i></a>
+                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-2xl"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="rounded-3xl bg-zinc-800 mt-3 p-6 text-white text-left">
+            <h2 class="font-semibold text-2xl">Experience With:</h2>
+            <div class="my-3">
+                <swiper
+                    :space-between="50"
+                    :slides-per-view="1"
+                    :breakpoints="swiperBreakpoints"
+                    :loop="true"
+                    :centeredSlides="true"
+                    :autoplay="{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }"
+                    :pagination="{
+                        clickable: true,
+                    }"
+                    :navigation="true"
+                    :modules="modules"
+                    class="mt-5"
+                >
+                    <swiper-slide class="pb-20 sm:pb-16" v-for="tech in technologies">
+                        <a :href="tech.url" class="rounded-2xl flex items-center justify-center h-fit p-1">
+                            <img width="60" height="70" :src="tech.icon" :alt="tech.name">
+                        </a>
+                    </swiper-slide>
+                </swiper>
+            </div>
+        </div>
         <div class="md:grid w-full md:grid-cols-5 flex flex-col gap-3 mt-3">
-            <div class="rounded-3xl col-span-3 bg-zinc-800/70 row text-white p-6 text-left" style="font-size: 1.8vw">
-                <div class="flex justify-between">
+            <div class="rounded-3xl col-span-3 bg-zinc-800/70 row text-white p-6 text-left">
+                <div class="flex justify-between text-xl">
                     <b>Projects Portfolio</b>
                     <router-link :to="{ name: 'projects' }" class="text-zinc-400 transition-colors duration-200 hover:text-zinc-400/80">
                         View All
@@ -99,24 +129,31 @@
 
 <script lang="ts">
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
-import { defineComponent } from 'vue';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 import HomeSidebar from './HomeSidebar.vue';
 import { mapState, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
 // @ts-ignore
 import isEmpty from 'lodash/isEmpty';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css';
 
 
 export default defineComponent({
     name: 'HomeBlocks',
     components: {
         ProjectPortfolioCard,
-        HomeSidebar
+        HomeSidebar,
+        Swiper,
+        SwiperSlide
     },
     computed: {
-        ...mapState(["cv", "projects"])
+        ...mapState(["cv", "projects", "technologies"])
     },
     methods: {
-        ...mapActions(["update_cv", "update_projects"])
+        ...mapActions(["update_cv", "update_projects", "update_technologies"])
     },
     data() {
         return {
@@ -125,12 +162,29 @@ export default defineComponent({
     },
     setup() {
         return {
-            isEmpty
+            isEmpty,
+            modules: [Autoplay, Pagination, Navigation],
+            swiperBreakpoints: {
+                470: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                540: {
+                    slidesPerView: 4
+                },
+                750: {
+                    slidesPerView: 6
+                },
+                1025: {
+                    slidesPerView: 8
+                }
+            }
         }
     },
     async beforeMount() {
         await this.update_cv()
         await this.update_projects()
+        await this.update_technologies()
     }
 })
 </script>

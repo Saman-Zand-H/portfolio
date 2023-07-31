@@ -25,6 +25,7 @@ export default createStore({
             location: ""
         },
         projects: new Array<projectsInterface>(),
+        technologies: new Array<{name: string, image: string, url: string}>()
     },
     getters: {},
     mutations: {
@@ -35,6 +36,18 @@ export default createStore({
         },
         UPDATE_PROJECTS(state, payload: Array<projectsInterface>) {
             state.projects = payload
+        },
+        UPDATE_TECHNOLOGIES(
+            state, 
+            payload: Array<
+                {
+                    name: string, 
+                    image: string, 
+                    url: string
+                }
+            >
+        ) {
+            state.technologies = payload
         }
     },
     actions: {
@@ -47,6 +60,11 @@ export default createStore({
             const url = "/api/v1/project"
             const res = await axios.get(url)
             if (res.status === 200) commit("UPDATE_PROJECTS", res.data)
+        },
+        async update_technologies({ commit }) {
+            const url = "/api/v1/technology";
+            const res = await axios.get(url);
+            if (res.status === 200) commit('UPDATE_TECHNOLOGIES', res.data)
         }
     },
     modules: {},

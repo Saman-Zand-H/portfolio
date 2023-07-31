@@ -1,7 +1,9 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
-from cv.models import CV, Project
-from api.serializers.cv import CVSerializer, ProjectSerializer
+from cv.models import CV, Project, Technology
+from api.serializers.cv import (CVSerializer, 
+                                ProjectSerializer, 
+                                TechnologySerializer)
 
 
 class CVViewset(ReadOnlyModelViewSet):
@@ -12,4 +14,9 @@ class CVViewset(ReadOnlyModelViewSet):
 class ProjectsViewset(ReadOnlyModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    
+    
+class TechnologyViewset(ReadOnlyModelViewSet):
+    queryset = Technology.objects.all()
+    serializer_class = TechnologySerializer
     

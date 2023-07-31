@@ -5,9 +5,12 @@
             <button type="button" @click.prevent="isActive = !isActive"><i class="fa fa-bars text-2xl"></i></button>
         </nav>
         <ul :class="[isActive ? 'max-h-screen' : 'max-h-0', 'w-full transition-[max-height] overflow-hidden duration-500 flex flex-col']">
-            <li class="border-t hover:cursor-pointer hover:bg-zinc-950/80 border-zinc-950 py-4">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            </li>
+            <router-link :to="{ name: 'home' }" class="border-t hover:cursor-pointer hover:bg-zinc-950/80 border-zinc-950 py-4">
+                Home
+            </router-link>
+            <router-link :to="{ name: 'projects' }" class="border-t hover:cursor-pointer hover:bg-zinc-950/80 border-zinc-950 py-4">
+                Projects
+            </router-link>
         </ul>
     </div>
 </template>

@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from cv.models import CV, Project
+from cv.models import CV, Project, Technology
+
+
+class TechnologySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Technology
+        fields = ["name", "icon", "url"]
 
 
 class CVSerializer(serializers.ModelSerializer):

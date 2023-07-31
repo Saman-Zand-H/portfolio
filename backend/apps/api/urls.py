@@ -1,7 +1,9 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .viewsets.cv import CVViewset, ProjectsViewset
+from .viewsets.cv import (CVViewset, 
+                          ProjectsViewset, 
+                          TechnologyViewset)
 
 
 app_name = "api"
@@ -20,6 +22,12 @@ router.register(
     prefix="project",
     viewset=ProjectsViewset,
     basename="project"
+)
+
+router.register(
+    prefix="technology",
+    viewset=TechnologyViewset,
+    basename="technology"
 )
 
 

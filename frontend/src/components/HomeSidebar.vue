@@ -8,9 +8,9 @@
         <button type="button" @click.prevent="$emit('toggle-sidebar')" class="text-white hover:bg-zinc-800/30 border-y border-white py-4 w-full">
             Close
         </button>
-        <button type="button" class="text-white hover:bg-zinc-800/30 border-y border-white py-4 w-full">
+        <router-link :to="{ name: 'projects' }" class="text-white block hover:bg-zinc-800/30 border-y border-white py-4 w-full">
             Projects
-        </button>
+        </router-link>
     </div>
 </template>
 
