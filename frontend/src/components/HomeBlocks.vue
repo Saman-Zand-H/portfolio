@@ -4,7 +4,7 @@
     <main class="p-5">
         <div class="grid grid-cols-1 w-full md:grid-cols-2 gap-2">
             <div class="bg-transparent grid grid-rows-2 xl:grid-rows-6 gap-2">
-                <div class="rounded-3xl flex flex-wrap gap-x-3 items-bae text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] md:leading-none">
+                <div class="rounded-3xl animate__animated animate__fadeInUp flex flex-wrap gap-x-3 items-bae text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] md:leading-none">
                     <span class="text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
                         {{ word }}
                     </span>
@@ -14,35 +14,35 @@
                     </span>
                 </div>
                 <div class="grid grid-cols-3 gap-4 row-span-1 xl:row-span-3 h-full w-full bg-transparent text-center">
-                    <div class="bg-green-500 rounded-3xl px-2 flex flex-col gap-2 items-center justify-center text-white">
+                    <div class="bg-green-500 rounded-3xl animate__animated animate__fadeInUp px-2 flex flex-col gap-2 items-center justify-center text-white">
                         <span class="font-bold text-2xl">1</span>
                         <small class="text-xs">Year of Experince in Vue.js</small>
                     </div>
-                    <div class="bg-amber-300 rounded-3xl px-2 flex items-center justify-center text-black flex-col gap-2">
+                    <div class="bg-amber-300 rounded-3xl animate__animated animate__fadeInUp px-2 flex items-center justify-center text-black flex-col gap-2">
                         <span class="font-bold text-2xl">+4</span>
                         <small class="text-xs">Years of Experince in python</small>
                     </div>
-                    <div class="bg-rose-400 rounded-3xl px-2 flex items-center justify-center text-white flex-col gap-2">
+                    <div class="bg-rose-400 rounded-3xl animate__animated animate__fadeInUp px-2 flex items-center justify-center text-white flex-col gap-2">
                         <span class="font-bold text-2xl">+10</span>
                         <small class="text-xs">Handled Projects</small>
                     </div>
                 </div>
             </div>
             <div class="w-full flex flex-col gap-3 md:grid sm:grid-rows-6 bg-transparent items-start">
-                <div class="rounded-3xl w-full row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white" style="font-size: 1.7vw">
-                    <span class="font-sans">SamanZND</span>
+                <div class="rounded-3xl animate__animated animate__fadeInUp w-full row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white" style="font-size: 1.7vw">
+                    <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
                     <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
                 </div>
                 <div class="flex md:flex-row flex-col gap-3 w-full h-full row-span-5 bg-transparent text-center">
-                    <div class="h-auto w-full md:w-1/2 rounded-3xl overflow-hidden bg-zinc-800 md:bg-cover" :style="`background-image: url(${cv.image})`">
+                    <div class="h-auto w-full animate__animated animate__fadeInUp md:w-1/2 rounded-3xl overflow-hidden bg-zinc-800 md:bg-cover" :style="`background-image: url(${cv.image})`">
                         <img class="md:hidden w-full h-fit" :src="cv.image">
                     </div>
                     <div class="rounded-3xl w-full md:w-1/2 bg-transparent grid grid-cols-1 gap-3">
-                        <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-6 sm:py-3 lg:py-0">
+                        <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-6 sm:py-3 lg:py-0">
                             <span>Name :</span>
                             <b class="font-bold">Saman Zand</b>
                         </div>
-                        <div class="row-span-3 flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-4">
+                        <div class="row-span-3 animate__animated animate__fadeInUp flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-4">
                             <div class="flex justify-between w-full px-2">
                                 <span>Based in :</span>
                                 <b>{{ cv.location }}</b>
@@ -51,7 +51,7 @@
                                 <img class="w-full h-full md:hidden" src="../assets/mashhadMap.png">
                             </div>
                         </div>
-                        <div class="row-span-1 bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-5 sm:py-3 lg:py-0">
+                        <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-5 sm:py-3 lg:py-0">
                             <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-github bg-slate-800 text-2xl"></i></a>
                             <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-linkedin bg-blue-900 text-2xl"></i></a>
                             <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-telegram bg-cyan-700 text-2xl"></i></a>
@@ -61,8 +61,8 @@
                 </div>
             </div>
         </div>
-        <div class="rounded-3xl bg-zinc-800 mt-3 p-6 text-white text-left">
-            <h2 class="font-semibold text-2xl">Experience With:</h2>
+        <div class="rounded-3xl bg-zinc-800 mt-3 animate__animated animate__fadeInUp p-6 text-white text-left">
+            <h2 class="font-semibold text-2xl">My Skills:</h2>
             <div class="my-3">
                 <swiper
                     :space-between="50"
@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="md:grid w-full md:grid-cols-5 flex flex-col gap-3 mt-3">
-            <div class="rounded-3xl col-span-3 bg-zinc-800/70 row text-white p-6 text-left">
+            <div class="rounded-3xl col-span-3 animate__animated animate__fadeInUp bg-zinc-800/70 row text-white p-6 text-left">
                 <div class="flex justify-between text-xl">
                     <b>Projects Portfolio</b>
                     <router-link :to="{ name: 'projects' }" class="text-zinc-400 transition-colors duration-200 hover:text-zinc-400/80">
@@ -101,7 +101,7 @@
                     <ProjectPortfolioCard v-if="!isEmpty(projects)" v-for="project in projects" :key="project.slug" :backgroundUrl="project.images[0].image" />
                 </div>
             </div>
-            <div class="rounded-3xl w-full col-span-2  bg-zinc-800/70 text-white p-6 text-xl text-left">
+            <div class="rounded-3xl w-full col-span-2 animate__animated animate__fadeInUp bg-zinc-800/70 text-white p-6 text-xl text-left">
                 <div class="flex justify-between">
                     <b>About</b>
                     <span class="text-zinc-400">Resume</span>

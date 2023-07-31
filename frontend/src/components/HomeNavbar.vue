@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-zinc-800 rounded-3xl w-full text-white flex flex-col shadow-lg">
-        <nav class="h-14 flex items-center justify-between px-8 text-xl font-bold">
-            <span>SamanZND</span>
+    <div class="bg-zinc-800 rounded-3xl w-full text-white flex flex-col shadow-lg animate__animated animate__fadeInUp">
+        <nav class="h-16 flex items-center justify-between px-8 text-xl font-bold">
+            <router-link class="text-white hover:text-zinc-200" :to="{ name: 'home' }">SamanZND</router-link>
             <button type="button" @click.prevent="isActive = !isActive"><i class="fa fa-bars text-2xl"></i></button>
         </nav>
         <ul :class="[isActive ? 'max-h-screen' : 'max-h-0', 'w-full transition-[max-height] overflow-hidden duration-500 flex flex-col']">

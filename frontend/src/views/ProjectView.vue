@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen max-h-full bg-zinc-950 p-5">
         <HomeNavbar />
-        <main class="my-3 bg-zinc-800 text-white rounded-3xl py-6 px-9 flex flex-col gap-6">
+        <main class="my-3 bg-zinc-800 text-white rounded-3xl py-6 px-9 flex flex-col gap-6 animate__animated animate__fadeInUp">
             <span class="text-5xl text-left font-semibold">
                 {{ project?.name }}
             </span>

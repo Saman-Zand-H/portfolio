@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex flex-col gap-5 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-zinc-800 text-white px-4 py-6 rounded-3xl">
+    <div class="w-full animate__animated animate__fadeInUp flex flex-col gap-5 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-zinc-800 text-white px-4 py-6 rounded-3xl">
         <div class="w-2/3 rounded-3xl overflow-hidden self-center shadow-lg">
             <img 
                     class="w-full aspect-square" 
