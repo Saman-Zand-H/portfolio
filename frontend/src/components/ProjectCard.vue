@@ -30,7 +30,7 @@
     // @ts-ignore
     import isEmpty from 'lodash/isEmpty';
     import { defineComponent } from 'vue';
-    import { projectsInterface } from '@/store';
+    import projectsInterface from '@/store/types/projects';
     // @ts-ignore
     import jmoment from 'moment-jalaali';
     // @ts-ignore

@@ -84,7 +84,7 @@ class Project(models.Model):
     name = models.CharField(max_length=50)
     explanations = models.TextField(blank=True, null=True)
     images = models.ManyToManyField(Image, through=ImageProjectRelation)
-    slug = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
     technologies = models.ManyToManyField(Technology, 
                                           through=TechnologyProjectRelation)
     timestamp = models.DateTimeField(auto_now=True)
@@ -93,9 +93,4 @@ class Project(models.Model):
     
     def __str__(self):
         return self.slug
-    
-    def clean(self):
-        super().clean()
-        # make the slug a slug :)
-        "-".join(self.slug.split(" "))
     

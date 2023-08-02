@@ -83,10 +83,23 @@
                 >
                     <swiper-slide class="pb-20 sm:pb-16" v-for="tech in technologies">
                         <a :href="tech.url" class="rounded-2xl flex items-center justify-center h-fit p-1">
-                            <img width="60" height="70" :src="tech.icon" :alt="tech.name">
+                            <img class="hover:opacity-80 transition-opacity duration-300" width="60" height="70" :src="tech.icon" :alt="tech.name">
                         </a>
                     </swiper-slide>
                 </swiper>
+            </div>
+        </div>
+        <div class="rounded-3xl w-full bg-zinc-800 mt-3 animate__animated animate__fadeInUp p-6 text-white text-left">
+            <div class="flex justify-between">
+                <span>
+                    <h2 class="font-semibold text-2xl">My Blog:</h2>
+                </span>
+                <span>
+                    <h2 class="font-semibold text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
+                </span>
+            </div>
+            <div class="w-full p-5">
+                <BlogPortfolioCard v-for="article in articles" :article="article" />
             </div>
         </div>
         <div class="md:grid w-full md:grid-cols-5 flex flex-col gap-3 mt-3">
@@ -98,7 +111,12 @@
                     </router-link>
                 </div>
                 <div class="mt-2 flex flex-row gap-2 overflow-x-auto">
-                    <ProjectPortfolioCard v-if="!isEmpty(projects)" v-for="project in projects" :key="project.slug" :backgroundUrl="project.images[0].image" />
+                    <div class="h-full w-full" v-for="project in projects" :key="project.slug">
+                        <ProjectPortfolioCard 
+                                v-if="!isEmpty(project.images)"
+                                :backgroundUrl="project.images[0]?.image" 
+                            />
+                    </div>
                 </div>
             </div>
             <div class="rounded-3xl w-full col-span-2 animate__animated animate__fadeInUp bg-zinc-800/70 text-white p-6 text-xl text-left">
@@ -131,6 +149,7 @@
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import BlogPortfolioCard from './BlogPortfolioCard.vue';
 import HomeSidebar from './HomeSidebar.vue';
 import { mapState, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
@@ -147,13 +166,28 @@ export default defineComponent({
         ProjectPortfolioCard,
         HomeSidebar,
         Swiper,
-        SwiperSlide
+        SwiperSlide,
+        BlogPortfolioCard
     },
     computed: {
-        ...mapState(["cv", "projects", "technologies"])
+        ...mapState(
+            [
+                "cv", 
+                "projects", 
+                "technologies", 
+                "articles"
+            ]
+        )
     },
     methods: {
-        ...mapActions(["update_cv", "update_projects", "update_technologies"])
+        ...mapActions(
+            [
+                "update_cv", 
+                "update_projects", 
+                "update_technologies", 
+                "get_preview"
+            ]
+        )
     },
     data() {
         return {
@@ -185,6 +219,7 @@ export default defineComponent({
         await this.update_cv()
         await this.update_projects()
         await this.update_technologies()
+        await this.get_preview()
     }
 })
 </script>

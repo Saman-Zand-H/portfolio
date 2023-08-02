@@ -71,7 +71,7 @@
     import 'swiper/css/pagination';
     import { defineComponent } from 'vue';
     import { mapState, mapActions } from 'vuex';
-    import { projectsInterface } from '@/store';
+    import projectsInterface from '@/store/types/projects';
     import HomeNavbar from '@/components/HomeNavbar.vue';
     import { Swiper, SwiperSlide } from 'swiper/vue'
     import { EffectFade, Navigation, Pagination } from 'swiper/modules';

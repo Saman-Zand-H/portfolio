@@ -7,5 +7,559 @@
         "image": "cv_images/saman.jpg",
         "location": "Mashhad"
     }
+},
+{
+    "model": "cv.image",
+    "pk": 1,
+    "fields": {
+        "uuid": "47d974aa-a783-49c0-9dec-6632b05efe83",
+        "image": "projects/frontend.png",
+        "alt": "pezeshkino_1",
+        "timestamp": "2023-07-30T12:33:34.465Z"
+    }
+},
+{
+    "model": "cv.image",
+    "pk": 2,
+    "fields": {
+        "uuid": "e868feca-1dba-48c8-a709-2dcf3b06d811",
+        "image": "projects/frontend_1.png",
+        "alt": "pezeshkino_2",
+        "timestamp": "2023-07-30T12:33:44.997Z"
+    }
+},
+{
+    "model": "cv.image",
+    "pk": 3,
+    "fields": {
+        "uuid": "1e27f754-40e8-4550-beeb-d1af2f6fa564",
+        "image": "projects/frontend_2.png",
+        "alt": "pezeshkino_3",
+        "timestamp": "2023-07-30T12:33:55.251Z"
+    }
+},
+{
+    "model": "cv.image",
+    "pk": 4,
+    "fields": {
+        "uuid": "68eeb55a-d6bd-4066-b52b-a1e996f86adc",
+        "image": "projects/frontend_3.png",
+        "alt": "pezeshkino_4",
+        "timestamp": "2023-07-30T12:34:06.658Z"
+    }
+},
+{
+    "model": "cv.image",
+    "pk": 5,
+    "fields": {
+        "uuid": "19992ff5-b7e9-4e12-b867-a242bfb9ca7e",
+        "image": "projects/frontend_4.png",
+        "alt": "pezeshkino_5",
+        "timestamp": "2023-07-30T12:34:15.801Z"
+    }
+},
+{
+    "model": "cv.image",
+    "pk": 6,
+    "fields": {
+        "uuid": "c7f0eeab-6258-4438-a039-ec441ccf7f25",
+        "image": "projects/frontend_5.png",
+        "alt": "pezeshkino_6",
+        "timestamp": "2023-07-30T12:34:26.884Z"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 1,
+    "fields": {
+        "uuid": "2210fd3a-4cbc-4056-8c00-2d078c6d279a",
+        "name": "Python",
+        "icon": "technologies/python-original.svg",
+        "timestamp": "2023-07-31T14:59:00.559Z",
+        "url": "https://python.org"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 2,
+    "fields": {
+        "uuid": "4d9c919f-bddb-4cbb-885a-954b38a62da3",
+        "name": "Django",
+        "icon": "technologies/django-plain_oFTQ5Um.svg",
+        "timestamp": "2023-07-31T20:04:29.354Z",
+        "url": "https://djangoproject.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 3,
+    "fields": {
+        "uuid": "9617639c-b576-46e7-9fbe-a4f3165d9aa2",
+        "name": "Vue.js",
+        "icon": "technologies/vuejs-original.svg",
+        "timestamp": "2023-07-31T14:59:07.779Z",
+        "url": "https://vuejs.org"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 4,
+    "fields": {
+        "uuid": "e008b005-c333-4a61-af63-8aa93f1fe951",
+        "name": "Javascript",
+        "icon": "technologies/javascript-original.svg",
+        "timestamp": "2023-07-31T14:59:14.976Z",
+        "url": "https://javascript.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 5,
+    "fields": {
+        "uuid": "d04de932-ba18-4f08-9c88-ec7a929ce0c3",
+        "name": "Typescript",
+        "icon": "technologies/typescript-original.svg",
+        "timestamp": "2023-07-31T14:59:17.889Z",
+        "url": "https://typescript.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 6,
+    "fields": {
+        "uuid": "df25046a-8de9-4dc8-9206-61dee48a74c3",
+        "name": "TailwindCSS",
+        "icon": "technologies/tailwindcss-plain.svg",
+        "timestamp": "2023-07-31T14:59:21.135Z",
+        "url": "https://tailwindcss.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 7,
+    "fields": {
+        "uuid": "f92cef49-05fd-4ac5-ad94-0acf57655432",
+        "name": "Git",
+        "icon": "technologies/git-original.svg",
+        "timestamp": "2023-07-31T14:54:47.589Z",
+        "url": "https://git-scm.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 8,
+    "fields": {
+        "uuid": "7b882f0c-491c-42f9-8497-d315f47f01be",
+        "name": "PostgreSQL",
+        "icon": "technologies/postgresql-original.svg",
+        "timestamp": "2023-07-31T14:53:49.760Z",
+        "url": "https://postgresql.org"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 9,
+    "fields": {
+        "uuid": "e083eb5d-e4da-479d-986e-ab8d8bf24954",
+        "name": "Vee Validate",
+        "icon": "technologies/vee-validate.png",
+        "timestamp": "2023-07-31T14:53:26.113Z",
+        "url": "https://vee-validate.logaretm.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 10,
+    "fields": {
+        "uuid": "a6f63b37-d7b6-4468-976a-48b8edf0cc30",
+        "name": "Chart.js",
+        "icon": "technologies/charts.ico",
+        "timestamp": "2023-07-31T14:53:12.070Z",
+        "url": "https://chartjs.org"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 11,
+    "fields": {
+        "uuid": "df6a1732-e99c-42c0-9e01-f97d3f37feb4",
+        "name": "JWT",
+        "icon": "technologies/jwt_logo.svg",
+        "timestamp": "2023-07-31T15:02:43.784Z",
+        "url": "https://jwt.io"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 12,
+    "fields": {
+        "uuid": "3aeea94f-8bd8-4187-9366-07b2a71ffe8a",
+        "name": "Axios",
+        "icon": "technologies/axios-icon.svg",
+        "timestamp": "2023-07-31T15:04:04.305Z",
+        "url": "https://axios-http.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 13,
+    "fields": {
+        "uuid": "67ed57af-4eef-47c8-889d-49c751981a6f",
+        "name": "Swiper.js",
+        "icon": "technologies/swiper-logo.svg",
+        "timestamp": "2023-07-31T17:31:52.678Z",
+        "url": "https://swiperjs.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 14,
+    "fields": {
+        "uuid": "e26f3298-fcb8-415c-8e5c-5dcae2689677",
+        "name": "ElasticSearch",
+        "icon": "technologies/elastic-icon.svg",
+        "timestamp": "2023-07-31T18:00:32.603Z",
+        "url": "https://elastic.co"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 15,
+    "fields": {
+        "uuid": "01996693-7706-4e24-873b-9b052ac5c912",
+        "name": "Jinja2",
+        "icon": "technologies/pocoo_jinja-icon.svg",
+        "timestamp": "2023-07-31T18:03:04.183Z",
+        "url": "https://palletsprojects.com/p/jinja/"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 16,
+    "fields": {
+        "uuid": "e3f66a9c-8637-493a-b433-0c8ad37eeaf0",
+        "name": "Flask",
+        "icon": "technologies/pocoo_flask-icon.svg",
+        "timestamp": "2023-07-31T18:04:02.812Z",
+        "url": "https://flask.palletsprojects.com/en/2.3.x/"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 17,
+    "fields": {
+        "uuid": "2dca1c42-65e2-430b-83da-887fdb88a3ec",
+        "name": "Docker",
+        "icon": "technologies/docker-original.svg",
+        "timestamp": "2023-07-31T18:05:49.848Z",
+        "url": "https://docker.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 18,
+    "fields": {
+        "uuid": "e7f110ee-a3ed-47dc-aa18-70a7b3ec0584",
+        "name": "jQuery",
+        "icon": "technologies/jquery-icon.svg",
+        "timestamp": "2023-07-31T18:06:27.470Z",
+        "url": "http://jquery.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 19,
+    "fields": {
+        "uuid": "bcb4f3f6-c956-4747-ac16-6942ac269968",
+        "name": "Bootstrap",
+        "icon": "technologies/getbootstrap-icon.svg",
+        "timestamp": "2023-07-31T18:07:07.233Z",
+        "url": "http://getboostrap.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 20,
+    "fields": {
+        "uuid": "79a3f851-27d3-4492-9a63-009e7803cdac",
+        "name": "Sass",
+        "icon": "technologies/sass-lang-icon.svg",
+        "timestamp": "2023-07-31T18:08:30.376Z",
+        "url": "https://sass-lang.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 21,
+    "fields": {
+        "uuid": "f394a4a6-3df9-435d-950e-3337ece09a45",
+        "name": "Selenium",
+        "icon": "technologies/selenium-original.svg",
+        "timestamp": "2023-07-31T18:10:01.047Z",
+        "url": "https://selenium.dev"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 22,
+    "fields": {
+        "uuid": "ba205bf6-a915-45bd-93bf-628e424e52c9",
+        "name": "Linux",
+        "icon": "technologies/linux-original.svg",
+        "timestamp": "2023-07-31T18:12:26.710Z",
+        "url": "https://linux.org"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 23,
+    "fields": {
+        "uuid": "1a080912-325e-4097-a28f-ea49b364f0d4",
+        "name": "Algolia",
+        "icon": "technologies/algolia-icon.svg",
+        "timestamp": "2023-07-31T18:14:24.390Z",
+        "url": "https://algolia.org"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 24,
+    "fields": {
+        "uuid": "fb4e6969-8f22-4058-b59a-a7034c8bf895",
+        "name": "AWS",
+        "icon": "technologies/amazon_aws-icon.svg",
+        "timestamp": "2023-07-31T18:15:09.835Z",
+        "url": "https://aws.amazon.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 25,
+    "fields": {
+        "uuid": "61f56dd3-133f-4aa4-847d-eda588fe89c7",
+        "name": "Azure",
+        "icon": "technologies/microsoft_azure-icon.svg",
+        "timestamp": "2023-07-31T18:15:49.845Z",
+        "url": "https://azure.microsoft.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 26,
+    "fields": {
+        "uuid": "6160e2dc-3e1f-4295-ae80-9f887fa1666d",
+        "name": "DigitalOcean",
+        "icon": "technologies/digitalocean-icon.svg",
+        "timestamp": "2023-07-31T18:16:26.716Z",
+        "url": "https://digitalocean.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 27,
+    "fields": {
+        "uuid": "449631c4-5130-43e2-91bc-795450019106",
+        "name": "FastAPI",
+        "icon": "technologies/fastapi_logo_.svg",
+        "timestamp": "2023-07-31T18:24:31.518Z",
+        "url": "https://fastapi.tiangolo.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 28,
+    "fields": {
+        "uuid": "73eac181-0727-4e88-b389-6c1946318c6e",
+        "name": "MongoDB",
+        "icon": "technologies/mongodb-icon.svg",
+        "timestamp": "2023-07-31T18:34:57.194Z",
+        "url": "https://mongodb.com"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 29,
+    "fields": {
+        "uuid": "90d31536-7acf-479a-9486-1e15d95f9d60",
+        "name": "Redis",
+        "icon": "technologies/redis-icon.svg",
+        "timestamp": "2023-07-31T18:37:10.111Z",
+        "url": "https://redis.io"
+    }
+},
+{
+    "model": "cv.technology",
+    "pk": 30,
+    "fields": {
+        "uuid": "24655913-4567-426d-8b5e-476c1ba8a3fe",
+        "name": "RabbitMQ",
+        "icon": "technologies/rabbitmq-icon.svg",
+        "timestamp": "2023-07-31T18:37:04.060Z",
+        "url": "https://rabitmq.com"
+    }
+},
+{
+    "model": "cv.imageprojectrelation",
+    "pk": 1,
+    "fields": {
+        "image": "47d974aa-a783-49c0-9dec-6632b05efe83",
+        "project": 1
+    }
+},
+{
+    "model": "cv.imageprojectrelation",
+    "pk": 2,
+    "fields": {
+        "image": "e868feca-1dba-48c8-a709-2dcf3b06d811",
+        "project": 1
+    }
+},
+{
+    "model": "cv.imageprojectrelation",
+    "pk": 3,
+    "fields": {
+        "image": "1e27f754-40e8-4550-beeb-d1af2f6fa564",
+        "project": 1
+    }
+},
+{
+    "model": "cv.imageprojectrelation",
+    "pk": 4,
+    "fields": {
+        "image": "68eeb55a-d6bd-4066-b52b-a1e996f86adc",
+        "project": 1
+    }
+},
+{
+    "model": "cv.imageprojectrelation",
+    "pk": 5,
+    "fields": {
+        "image": "19992ff5-b7e9-4e12-b867-a242bfb9ca7e",
+        "project": 1
+    }
+},
+{
+    "model": "cv.imageprojectrelation",
+    "pk": 6,
+    "fields": {
+        "image": "c7f0eeab-6258-4438-a039-ec441ccf7f25",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 1,
+    "fields": {
+        "technology": "2210fd3a-4cbc-4056-8c00-2d078c6d279a",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 2,
+    "fields": {
+        "technology": "4d9c919f-bddb-4cbb-885a-954b38a62da3",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 3,
+    "fields": {
+        "technology": "9617639c-b576-46e7-9fbe-a4f3165d9aa2",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 4,
+    "fields": {
+        "technology": "e008b005-c333-4a61-af63-8aa93f1fe951",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 5,
+    "fields": {
+        "technology": "d04de932-ba18-4f08-9c88-ec7a929ce0c3",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 6,
+    "fields": {
+        "technology": "df25046a-8de9-4dc8-9206-61dee48a74c3",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 7,
+    "fields": {
+        "technology": "f92cef49-05fd-4ac5-ad94-0acf57655432",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 8,
+    "fields": {
+        "technology": "e083eb5d-e4da-479d-986e-ab8d8bf24954",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 9,
+    "fields": {
+        "technology": "7b882f0c-491c-42f9-8497-d315f47f01be",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 10,
+    "fields": {
+        "technology": "a6f63b37-d7b6-4468-976a-48b8edf0cc30",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 11,
+    "fields": {
+        "technology": "3aeea94f-8bd8-4187-9366-07b2a71ffe8a",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 12,
+    "fields": {
+        "technology": "df6a1732-e99c-42c0-9e01-f97d3f37feb4",
+        "project": 1
+    }
+},
+{
+    "model": "cv.technologyprojectrelation",
+    "pk": 13,
+    "fields": {
+        "technology": "67ed57af-4eef-47c8-889d-49c751981a6f",
+        "project": 1
+    }
+},
+{
+    "model": "cv.project",
+    "pk": 1,
+    "fields": {
+        "name": "Pezeshkino",
+        "explanations": "پروژه ای با هدف سهولت ارتباط پزشک با بیمار. بسیاری از جنبه های این برنامه از برنامه تحت وب paziresh24.ir الهام گرفته شد. در این برنامه کاربران ( بیماران ) میتوانند در بین پزشکان پزشک مورد نظر خود را جست و جو و طی یک پروسه پرداخت (شبیه سازی شده بوسیله زیبال ) قرار ملاقات رزرو کرده و نظرات خود را ثبت کنند. همچنین پزشکان میتوانند چندین مطب و منشی را برای مدیریت ثبت کنند.",
+        "slug": "pezeshkino",
+        "timestamp": "2023-07-31T17:32:09.728Z",
+        "started_at": "2023-06-05",
+        "ended_at": "2023-07-28"
+    }
 }
 ]
