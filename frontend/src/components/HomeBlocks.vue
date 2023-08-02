@@ -97,7 +97,6 @@
                 <span>
                     <h2 class="font-semibold text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
                 </span>
-                
             </div>
             <div class="w-full p-5">
                 <BlogPortfolioCard v-for="article in articles" :article="article" />
