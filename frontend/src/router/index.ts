@@ -2,6 +2,7 @@ import isEmpty from 'lodash/isEmpty';
 import HomeView from '@/views/HomeView.vue'
 import ProjectView from '@/views/ProjectView.vue'
 import ProjectsListView from '@/views/ProjectsListView.vue'
+import ArticlesListView from '@/views/ArticlesListView.vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
@@ -27,6 +28,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'project',
     meta: {
       title: 'Project'
+    }
+  },
+  {
+    path: '/blog',
+    component: ArticlesListView,
+    name: 'blog',
+    meta: {
+      title: 'Blog'
     }
   }
 ]

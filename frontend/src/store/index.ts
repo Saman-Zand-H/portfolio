@@ -91,6 +91,7 @@ export default createStore({
                                 title,
                                 subtitle,
                                 slug,
+                                tags,
                             }
                         }
                     }
@@ -107,5 +108,34 @@ export default createStore({
                 commit("UPDATE_ARTICLES", articles);
             }
         },
+        async update_articles({ commit }, article=false, page=1, count=8) {
+            const endpoint = "graphql/v1/";
+            const query = {
+                query: `{
+                    articles(offset: ${count*(page-1)}, first: ${count}) {
+                        edges {
+                            node {
+                                thumbnail,
+                                title,
+                                subtitle,
+                                slug,
+                                tags,
+                                ${article ? 'article' : ''}
+                            }
+                        }
+                    }
+                }`
+            };
+            const res = await axios.post(endpoint, query);
+            if (res.status === 200) {
+                const articles = res
+                                    ?.data
+                                    ?.data
+                                    ?.articles
+                                    ?.edges
+                                    ?.map((v: {node: blogInterface}) => v.node)
+                commit("UPDATE_ARTICLES", articles);
+            }
+        }
     },
 });

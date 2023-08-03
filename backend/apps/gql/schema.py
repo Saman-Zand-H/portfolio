@@ -19,7 +19,7 @@ class ArticleFilterset(FilterSet):
 
 class ArticleNode(DjangoObjectType):
     user = graphene.JSONString()
-    tags = graphene.JSONString()
+    tags = graphene.List(graphene.String)
     
     class Meta:
         model = Article
@@ -51,11 +51,10 @@ class ArticleNode(DjangoObjectType):
 
 
     def resolve_tags(self, info):
-        return [
-            i.name
-            for i in self.tags.all()
-            if self.tags is not None
-        ]
+        if self.tags is not None:
+            return [
+                i.name for i in self.tags.all()
+            ]
         
 
 class Query(graphene.ObjectType):
@@ -65,8 +64,6 @@ class Query(graphene.ObjectType):
     def resolve_article(self, info, slug):
         return get_object_or_404(Article, slug=slug)
     
-    def resolve_articles(self, info, *args, **kwargs):
-        return Article.objects.all().order_by("-updated_at")
     
     
 schema = graphene.Schema(query=Query)

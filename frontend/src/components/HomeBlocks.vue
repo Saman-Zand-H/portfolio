@@ -92,11 +92,11 @@
         <div class="rounded-3xl w-full bg-zinc-800 mt-3 animate__animated animate__fadeInUp p-6 text-white text-left">
             <div class="flex justify-between">
                 <span>
-                    <h2 class="font-semibold text-2xl">My Blog:</h2>
+                    <h2 class="font-semibold text-2xl">My Blog:</h2>                                                                                                                                                                                                                                                                                                                                                                                                    
                 </span>
-                <span>
+                <router-link :to="{ name: 'blog' }">
                     <h2 class="font-semibold text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
-                </span>
+                </router-link>
             </div>
             <div class="w-full p-5">
                 <BlogPortfolioCard v-for="article in articles" :article="article" />
