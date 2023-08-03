@@ -37,6 +37,7 @@
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
@@ -52,23 +53,25 @@
     import { defineComponent } from 'vue';
     import { mapState, mapActions } from 'vuex';
     import HomeNavbar from '@/components/HomeNavbar.vue';
+    import Footer from '@/components/Footer.vue'
     import Paginator from '@/components/Paginator.vue';
     import BlogPortfolioCard from '@/components/BlogPortfolioCard.vue';
-    import { toInteger, toNumber } from 'lodash';
+    import { toInteger } from 'lodash';
 
     export default defineComponent({
         name: 'ArticlesListView',
         components: {
             BlogPortfolioCard,
             HomeNavbar,
-            Paginator
+            Paginator,
+            Footer
         },
         computed: {
             ...mapState(["articles", "articles_count"]),
             pages(): number {
                 // number of articles in each page
                 const count = 8;
-                return Math.ceil(toNumber(this.articles_count) / count)
+                return Math.ceil(toInteger(this.articles_count) / count)
             }
         },
         methods: {
