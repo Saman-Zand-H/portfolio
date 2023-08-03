@@ -1,9 +1,11 @@
 export default interface blogInterface {
     title: string,
+    subtitle: string,
+    thumbnail: string,
     tags: Array<string>,
-    user: {first_name: string, last_name: string, picture: string},
+    slug: string,
+    created_at?: string,
     article?: string,
     updated_at: string,
-    created_at?: string,
-    thumbnail: string
+    count: number
 }

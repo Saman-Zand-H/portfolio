@@ -8,6 +8,16 @@ from django.shortcuts import get_object_or_404
 from blog.models import Article
 
 
+class ExtendedConnection(graphene.Connection):
+    class Meta:
+        abstract = True
+    
+    count = graphene.Int()
+    
+    def resolve_count(self, info, **kwargs):
+        return self.length
+
+
 class ArticleFilterset(FilterSet):
     class Meta:
         model = Article
@@ -24,6 +34,7 @@ class ArticleNode(DjangoObjectType):
     class Meta:
         model = Article
         filterset_class = ArticleFilterset
+        connection_class = ExtendedConnection
         interfaces = [relay.Node]
         fields = [
             "title",
@@ -48,7 +59,6 @@ class ArticleNode(DjangoObjectType):
             "username": user.username,
             "picture": user.picture.url if user.picture else ""
         }
-
 
     def resolve_tags(self, info):
         if self.tags is not None:

@@ -38,7 +38,8 @@ export default createStore({
         },
         projects: new Array<projectsInterface>(),
         technologies: new Array<{ name: string; image: string; url: string }>(),
-        articles: new Array<blogInterface>()
+        articles: new Array<blogInterface>(),
+        articles_count: NaN
     },
     getters: {},
     mutations: {
@@ -60,8 +61,9 @@ export default createStore({
         ) {
             state.technologies = payload;
         },
-        UPDATE_ARTICLES(state, payload: Array<blogInterface>) {
-            state.articles = payload
+        UPDATE_ARTICLES(state, payload: {articles: Array<blogInterface>, articles_count: number}) {
+            state.articles = payload.articles;
+            state.articles_count = payload.articles_count
         }
     },
     actions: {
@@ -108,11 +110,17 @@ export default createStore({
                 commit("UPDATE_ARTICLES", articles);
             }
         },
-        async update_articles({ commit }, article=false, page=1, count=8) {
+        async update_articles({ commit }, payload) {
+            const [article, page, count] = [
+                payload.article || false, 
+                payload.page || 1, 
+                payload.count || 8
+            ];
             const endpoint = "graphql/v1/";
             const query = {
                 query: `{
                     articles(offset: ${count*(page-1)}, first: ${count}) {
+                        count,
                         edges {
                             node {
                                 thumbnail,
@@ -128,13 +136,16 @@ export default createStore({
             };
             const res = await axios.post(endpoint, query);
             if (res.status === 200) {
-                const articles = res
+                const payload = {
+                    articles: res
                                     ?.data
                                     ?.data
                                     ?.articles
                                     ?.edges
-                                    ?.map((v: {node: blogInterface}) => v.node)
-                commit("UPDATE_ARTICLES", articles);
+                                    ?.map((v: {node: blogInterface}) => v.node),
+                    articles_count: res.data.data.articles.count
+                }
+                commit("UPDATE_ARTICLES", payload);
             }
         }
     },
