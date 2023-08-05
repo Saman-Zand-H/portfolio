@@ -16,6 +16,10 @@ def image_validators(file):
 
 class Tag(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    slug = models.SlugField()
+    
+    def __str__(self):
+        return self.name
     
     def save(self, *args, **kwargs):
         # avoiding dupication with different casings
@@ -32,11 +36,9 @@ class Article(models.Model):
     subtitle = models.CharField(max_length=50, default="")
     slug = models.SlugField(unique=True, max_length=100)
     article = MDTextField()
-    tags = models.ForeignKey(Tag,
-                             on_delete=models.SET_NULL,
-                             null=True,
-                             blank=True,
-                             related_name="tag_articles")
+    tags = models.ManyToManyField(Tag,
+                                  blank=True,
+                                  related_name="tag_articles")
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
     

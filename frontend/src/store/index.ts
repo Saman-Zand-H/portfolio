@@ -22,7 +22,7 @@ export interface blogInterface {
     title: string,
     subtitle: string,
     thumbnail: string,
-    tags: Array<string>,
+    tags: Array<{name: string, slug: string}>,
     slug: string,
     created_at?: string,
     article?: string,

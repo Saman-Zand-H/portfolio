@@ -30,7 +30,7 @@ class ArticleFilterset(FilterSet):
 
 class ArticleNode(DjangoObjectType):
     user = graphene.JSONString()
-    tags = graphene.List(graphene.String)
+    tags = graphene.List(graphene.JSONString)
     # toc stands for table_of_contents
     toc = graphene.JSONString()
     
@@ -68,10 +68,15 @@ class ArticleNode(DjangoObjectType):
         }
 
     def resolve_tags(self, info):
-        if self.tags is not None:
-            return [
-                i.name for i in self.tags.all()
-            ]
+        print(self.tags)
+        return [
+            {
+                "name": i.name,
+                "slug": i.slug
+            }
+            for i in self.tags.all()
+            if self.tags.exists()
+        ]
         
 
 class Query(graphene.ObjectType):

@@ -1,5 +1,8 @@
 <template>
-    <router-link :to="`/blog/${article?.slug}`" class="h-fit w-fit md:w-2/3 mx-auto flex transition-colors duration-200 p-5 bg-contain rounded-3xl text-white">
+    <router-link 
+        :to="{ name: 'article', params: {slug: isUndefined(article?.slug) ? 'unknown' : article?.slug}}" 
+        class="h-fit w-fit md:w-2/3 mx-auto flex transition-colors duration-200 p-5 bg-contain rounded-3xl text-white"
+        >
         <div class="w-fit pe-5 flex flex-col items-center border-e-2 h-fit">
             <span class="text-sm">{{ jmoment(article?.updated_at).format('jMMMM') }}</span>
             <span class="text-2xl font-semibold">{{ jmoment(article?.updated_at).format('jD') }}</span>
@@ -14,6 +17,7 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
+    import isUndefined from 'lodash/isUndefined';
     import { blogInterface } from '@/store/index';
     // @ts-ignore
     import moment from 'moment';
@@ -31,7 +35,8 @@
             moment.updateLocale('fa', fa);
             jmoment.loadPersian({dialect: 'persian-modern'});
             return {
-                jmoment
+                jmoment,
+                isUndefined
             }
         }
     })

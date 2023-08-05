@@ -10,8 +10,8 @@
                 </span>
 
                 <div class="flex gap-4 flex-wrap" v-if="!isEmpty(article.tags)">
-                    <a :href="`#${tag.slug}`" v-for="tag in article.tags" class="text-white bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-1 text-sm">
-                        #{{ tag.name }}
+                    <a :href="`#${JSON.parse(tag).slug}`" v-for="tag in article.tags" class="text-white bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-1 text-sm">
+                        #{{ JSON.parse(tag).slug }}
                     </a>
                 </div>
 
@@ -21,7 +21,7 @@
                         Published
                     </h3>
                     <h3 class="text-emerald-400">|</h3>
-                    <h3 class="">10 mean read</h3>
+                    <h3 class="">{{ calculatReadingTime() }} min. read</h3>
                 </span>
             </header>
 
@@ -29,7 +29,7 @@
                 <aside class="w-full xl:w-1/3 xl:sticky right-0 top-28 h-fit" v-if="!isEmpty(article.toc)">
                     <TableOfContents :toc="article.toc" />
                 </aside>
-                <div class="w-full">
+                <div class="w-full" id="article">
                     <VueShowdown flavor="github" :markdown="article.article"  />
                 </div>
             </section>
@@ -80,7 +80,13 @@
             }
         },
         methods: {
-            ...mapActions(["get_article"])
+            ...mapActions(["get_article"]),
+            calculatReadingTime() {
+                const articleElem = document.getElementById("article");
+                const numWords = articleElem?.textContent?.split(" ").length || 0;
+                const avgWPM = 300;
+                return Math.ceil(numWords / avgWPM)
+            }
         },
         updated() {
             hljs.highlightAll();
@@ -110,6 +116,6 @@
         },
         async beforeMount() {
             await this.get_article(this.$route.params.slug);
-        }
+        },
     })
 </script>
