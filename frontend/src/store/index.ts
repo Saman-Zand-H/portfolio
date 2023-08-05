@@ -26,8 +26,10 @@ export interface blogInterface {
     slug: string,
     created_at?: string,
     article?: string,
-    updated_at: string
+    updated_at: string,
+    toc?: string
 }
+
 
 export default createStore({
     state: {
@@ -101,13 +103,15 @@ export default createStore({
             };
             const res = await axios.post(endpoint, query);
             if (res.status === 200) {
-                const articles = res
-                                    ?.data
-                                    ?.data
-                                    ?.articles
-                                    ?.edges
-                                    ?.map((v: {node: blogInterface}) => v.node)
-                commit("UPDATE_ARTICLES", articles);
+                const payload = {
+                    articles: res
+                                ?.data
+                                ?.data
+                                ?.articles
+                                ?.edges
+                                ?.map((v: {node: blogInterface}) => v.node)
+                }
+                commit("UPDATE_ARTICLES", payload);
             }
         },
         async update_articles({ commit }, payload) {
@@ -147,6 +151,35 @@ export default createStore({
                 }
                 commit("UPDATE_ARTICLES", payload);
             }
+        },
+        async get_article({ commit }, slug) {
+            const endpoint = "/graphql/v1/";
+            const query = {
+                query: `{
+                    article(slug: "${slug}") {
+                        title,
+                        subtitle,
+                        thumbnail,
+                        toc,
+                        article,
+                        tags,
+                        updatedAt
+                    }
+                }`
+            };
+            const res = await axios.post(endpoint, query);
+            if (res.status === 200) {
+                const article = res.data.data.article;
+                article.toc = JSON.parse(article.toc);
+                commit(
+                    "UPDATE_ARTICLES", 
+                    {
+                        articles: [
+                            article
+                        ]
+                    }
+                );
+            };
         }
     },
 });

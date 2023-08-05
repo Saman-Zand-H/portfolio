@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'django_filters',
     'corsheaders',
-    'ckeditor',
+    'mdeditor',
     'graphene_django',
     'rest_framework',
     
@@ -170,3 +170,34 @@ MEDIA_ROOT = "media"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# MDEditor configuration
+MDEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': ["undo", "redo", "|",
+                    "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                    "h1", "h2", "h3", "h5", "h6", "|",
+                    "list-ul", "list-ol", "hr", "|",
+                    "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
+                    "emoji", "html-entities", "pagebreak", "goto-line", "|",
+                    "help", "info",
+                    "||", "preview", "watch", "fullscreen"], 
+        'upload_image_formats': ["jpg", "jpeg", "gif", "png","svg"],
+        'image_folder': 'editor',
+        'theme': 'default', 
+        'preview_theme': 'default',
+        'editor_theme': 'pastel-on-dark', 
+        'toolbar_autofixed': False, 
+        'search_replace': True,
+        'emoji': True, 
+        'tex': True, 
+        'flow_chart': True, 
+        'sequence': True, 
+        'watch': True,
+        'lineWrapping': True, 
+        'lineNumbers': True, 
+        'language': 'en'
+    }
+}
+

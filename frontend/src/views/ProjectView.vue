@@ -55,6 +55,7 @@
                 </div>
             </div>
         </main>
+        <Footer />
     </div>
 </template>
 
@@ -72,6 +73,7 @@
     import { defineComponent } from 'vue';
     import { mapState, mapActions } from 'vuex';
     import projectsInterface from '@/store/types/projects';
+    import Footer from '@/components/Footer.vue';
     import HomeNavbar from '@/components/HomeNavbar.vue';
     import { Swiper, SwiperSlide } from 'swiper/vue'
     import { EffectFade, Navigation, Pagination } from 'swiper/modules';
@@ -81,7 +83,8 @@
         components: {
             HomeNavbar,
             Swiper,
-            SwiperSlide
+            SwiperSlide,
+            Footer
         },
         computed: {
             ...mapState(["projects"]),

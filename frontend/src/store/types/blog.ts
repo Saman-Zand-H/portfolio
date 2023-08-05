@@ -7,5 +7,5 @@ export default interface blogInterface {
     created_at?: string,
     article?: string,
     updated_at: string,
-    count: number
+    toc?: string
 }

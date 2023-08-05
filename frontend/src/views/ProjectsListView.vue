@@ -4,6 +4,7 @@
         <main class="my-3" v-for="project in projects">
             <ProjectCard :project="project" />
         </main>
+        <Footer />
     </div>
 </template>
 
@@ -17,6 +18,7 @@
 <script lang="ts">
     import { mapActions, mapState } from 'vuex';
     import { defineComponent } from 'vue';
+    import Footer from '@/components/Footer.vue';
     import HomeNavbar from '@/components/HomeNavbar.vue';
     import ProjectCard from '@/components/ProjectCard.vue';
 
@@ -24,7 +26,8 @@
         name: "ProjectsListView",
         components: {
             HomeNavbar,
-            ProjectCard
+            ProjectCard,
+            Footer
         },
         methods: {
             ...mapActions(["update_projects"])

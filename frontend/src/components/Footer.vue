@@ -1,26 +1,32 @@
 <template>
-    <div class="flex flex-col gap-3">
-        <div class="flex gap-10 text-gray-400 justify-center">
-            <a href="https://github.com/saman-zand-h/" class="flex text-5xl gap-5 hover:text-gray-400/80 transition-colors duration-200">
+    <footer class="flex flex-col gap-3 animate__animated animate__fadeIn">
+        <div class="flex gap-10 justify-center text-gray-400">
+            <a href="https://github.com/saman-zand-h/" class="flex text-5xl gap-5 text-gray-400 hover:text-emerald-500 transition-colors duration-200 ease-in">
                 <i class="fa fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/saman-zand-h/" class="flex text-5xl gap-5 hover:text-gray-400/80 transition-colors duration-200">
+            <a href="https://linkedin.com/in/saman-zand-h/" class="flex text-5xl gap-5 text-gray-400 hover:text-emerald-500 transition-colors duration-200 ease-in">
                 <i class="fa fab fa-linkedin"></i>
             </a>
-            <a href="https://telegram.me/robsaman/" class="flex text-5xl gap-5 hover:text-gray-400/80 transition-colors duration-200">
+            <a href="https://telegram.me/robsaman/" class="flex text-5xl gap-5 text-gray-400 hover:text-emerald-500 transition-colors duration-200 ease-in">
                 <i class="fa fab fa-telegram"></i>
             </a>
         </div>
         <span class="font-semibold">
-            2023 &copy; Saman Zand Haghighi
+            2023 - {{ year }} Saman Zand Haghighi
         </span>
-    </div>
+    </footer>
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
+    import moment from 'moment'
 
     export default defineComponent({
-        'name': 'Footer'
+        'name': 'Footer',
+        setup() {
+            return {
+                year: moment().year()
+            }
+        }
     })
 </script>

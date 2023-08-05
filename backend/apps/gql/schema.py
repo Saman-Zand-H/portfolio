@@ -1,3 +1,4 @@
+import json
 import graphene
 from graphene_django import DjangoObjectType
 from graphene import relay
@@ -30,6 +31,8 @@ class ArticleFilterset(FilterSet):
 class ArticleNode(DjangoObjectType):
     user = graphene.JSONString()
     tags = graphene.List(graphene.String)
+    # toc stands for table_of_contents
+    toc = graphene.JSONString()
     
     class Meta:
         model = Article
@@ -42,11 +45,15 @@ class ArticleNode(DjangoObjectType):
             "thumbnail",
             "slug",
             "tags",
-            "article",
+            "toc",
             "user",
+            "article",
             "updated_at",
             "created_at"
         ]
+        
+    def resolve_toc(self, info):
+        return self.parse_contents()
         
     def resolve_thumbnail(self, info):
         return info.context.build_absolute_uri(self.thumbnail.url)
@@ -72,7 +79,8 @@ class Query(graphene.ObjectType):
     articles = DjangoFilterConnectionField(ArticleNode)
     
     def resolve_article(self, info, slug):
-        return get_object_or_404(Article, slug=slug)
+        article_qs = Article.objects.filter(slug=slug)
+        return article_qs.first() if article_qs.exists() else None
     
     
     

@@ -11,6 +11,11 @@ urlpatterns = [
     ),
     
     path(
+        route="mdeditor/",
+        view=include("mdeditor.urls")
+    ),
+    
+    path(
         route="api/v1/",
         view=include("api.urls", namespace="api")
     ),

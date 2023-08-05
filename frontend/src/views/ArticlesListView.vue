@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-zinc-950 text-white max-h-full min-h-screen w-full p-5">
+    <div class="bg-zinc-950 text-white max-h-full min-h-screen w-full p-5" style="animation-fill-mode: forwards;">
         <HomeNavbar />
-        <div class="p-5 w-full md:w-3/4 my-14 mx-auto text-left">
-            <span class="my-5 flex flex-col gap-5">
+        <main class="p-5 w-full md:w-3/4 my-14 mx-auto text-left">
+            <span class="my-5 flex flex-col gap-5 animate__animated animate__fadeInUp">
                 <h3 class="text-2xl">Hi, I'm</h3>
                 <h1 class="text-4xl font-semibold">Saman Zand Haghighi</h1>
                 <h4 class="text-lg text-gray-400">
@@ -13,17 +13,17 @@
                     I'm also open-source contributor.
                 </h4>
                 <span class="flex gap-20 text-gray-400">
-                    <a href="https://github.com/saman-zand-h/" class="flex items-center gap-3 hover:text-gray-400/80 transition-colors duration-200">
+                    <a href="https://github.com/saman-zand-h/" class="flex items-center gap-3 hover:text-emerald-500 ease-in transition-colors duration-200">
                         <i class="fa fab fa-github text-3xl"></i>
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/saman-zand-h" class="flex items-center gap-3 hover:text-gray-400/80 transition-colors duration-200">
+                    <a href="https://linkedin.com/in/saman-zand-h" class="flex items-center gap-3 hover:text-emerald-500 ease-in transition-colors duration-200">
                         <i class="fa fab fa-linkedin text-3xl"></i>
                         LinkedIn
                     </a>
                 </span>
             </span>
-            <div class="my-14 flex flex-col gap-5">
+            <div class="my-14 flex flex-col gap-5 animate__animated animate__fadeInUp">
                 <span>
                     <h2 class="text-3xl">
                         Recently Published
@@ -36,7 +36,7 @@
                     <Paginator @page-changed="changePage" :pages="pages" />
                 </div>
             </div>
-        </div>
+        </main>
         <Footer />
     </div>
 </template>
@@ -45,7 +45,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
 
 * {
-    font-family: 'Space Mono', monospace
+    font-family: 'Space Mono', monospace;
 }
 </style>
 

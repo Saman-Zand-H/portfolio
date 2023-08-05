@@ -3,7 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
 
-from ckeditor.fields import RichTextField
+from mdeditor.fields import MDTextField
 
 
 def image_validators(file):
@@ -21,7 +21,7 @@ class Tag(models.Model):
         # avoiding dupication with different casings
         self.name = self.name.lower()
         return super().save(*args, **kwargs)
-
+        
 
 class Article(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -31,7 +31,7 @@ class Article(models.Model):
     title = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=50, default="")
     slug = models.SlugField(unique=True, max_length=100)
-    article = RichTextField()
+    article = MDTextField()
     tags = models.ForeignKey(Tag,
                              on_delete=models.SET_NULL,
                              null=True,
@@ -43,7 +43,61 @@ class Article(models.Model):
     def __str__(self):
         return self.slug
     
+    def get_base_contents(self):
+        if self.headings is None:
+            return Heading.objects.none()
+        return self.headings.filter(parent_heading__isnull=True)
+    
+    def parse_contents(self):
+        """generates a parsed representation of the heading and subheadings in the format
+        
+        ' 
+            {
+                (heading_text, heading_id): {#here goes subheadings if they exists},
+                
+                ...
+            }
+        '
+
+        Returns:
+            Dict[tuple: Dict]: a representation of contents in a tree like dict
+        """
+        results = {}
+        
+        def dfs(content, ctx=results):
+            print(f"{content} - {content.subheadings.exists()}")
+            if not ctx.get(content, False):
+                ctx[f"{content.heading_text},{content.heading_id}"] = {}
+            if not content.subheadings.exists():
+                return
+            for heading in content.subheadings.all():
+                ctx[f"{content.heading_text},{content.heading_id}"][f"{heading.heading_text},{heading.heading_id}"] = {}
+                if heading.subheadings.exists():
+                    dfs(content, ctx[f"{content.heading_text},{content.heading_id}"])
+            return ctx
+        
+        for content in self.get_base_contents():
+            dfs(content)
+            
+        return results
+            
+    
     def save(self, *args, **kwargs):
         self.slug = self.slug.lower()
         super().save(*args, **kwargs)
+        
+        
+class Heading(models.Model):
+    article = models.ForeignKey(Article,
+                                on_delete=models.CASCADE,
+                                related_name="headings")
+    heading_text = models.CharField(max_length=30)
+    heading_id = models.CharField(max_length=30)
+    parent_heading = models.ForeignKey("self",
+                                       on_delete=models.CASCADE,
+                                       related_name="subheadings",
+                                       blank=True,
+                                       null=True)
     
+    def __str__(self):
+        return f"{self.article.title} : {self.heading_text}"
