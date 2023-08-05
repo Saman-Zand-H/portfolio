@@ -1,12 +1,12 @@
 <template>
-    <li v-if="!isEmpty(value)" class="text-zinc-400">
+    <li v-if="!isEmpty(value)">
         <a 
             :href="`#${contentKey.split(',')[1]}`" 
-            class="hover:text-zinc-100 transition-colors duration-200"
+            class="hover:text-zinc-100 text-zinc-400 transition-colors duration-200 toc-heading"
         >
             {{ contentKey.split(",")[0] }}
         </a>
-        <ul :id="contentKey.split(',')[1]" class="py-2 px-4 flex flex-col gap-2">
+        <ul class="px-3">
             <Content 
                     v-for="[k, v] of Object.entries(value)" 
                     :contentKey="String(k)" 
@@ -17,9 +17,8 @@
     </li>
     <li 
         v-else
-        class="text-zinc-400"
     >
-        <a :href="`#${contentKey.split(',')[1]}`" class="hover:text-zinc-100 transition-colors duration-200">
+        <a :href="`#${contentKey.split(',')[1]}`" class="hover:text-zinc-100 text-zinc-400 transition-colors duration-200 toc-heading">
             {{ contentKey.split(",")[0] }}
         </a>
     </li>

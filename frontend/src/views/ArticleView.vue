@@ -1,8 +1,8 @@
 <template>
     <div class="bg-zinc-950 min-h-screen max-h-full flex flex-col gap-6 text-white p-5 justify-between">
         <HomeNavbar />
-        <main class="text-start flex flex-col gap-8 p-10">
-            <section class="flex flex-col gap-5">
+        <article class="text-start flex flex-col gap-8 p-10">
+            <header class="flex flex-col gap-5">
                 <span>
                     <h1 class="text-5xl font-semibold">
                         {{ article.title }}
@@ -20,20 +20,20 @@
                         {{ jmoment(article.updated_at).format("jMMMM jD , jYYYY") }}
                         Published
                     </h3>
-                    <h3 class="text-emerald-500">|</h3>
+                    <h3 class="text-emerald-400">|</h3>
                     <h3 class="">10 mean read</h3>
                 </span>
-            </section>
+            </header>
 
-            <section class="flex flex-col md:flex-row-reverse gap-5 h-full w-full">
-                <aside class="w-full md:w-1/3 sticky right-0 top-28 h-fit" v-if="!isEmpty(article.toc)">
+            <section class="flex flex-col gap-10 xl:flex-row-reverse xl:gap-5 h-full w-full">
+                <aside class="w-full xl:w-1/3 xl:sticky right-0 top-28 h-fit" v-if="!isEmpty(article.toc)">
                     <TableOfContents :toc="article.toc" />
                 </aside>
                 <div class="w-full">
                     <VueShowdown flavor="github" :markdown="article.article"  />
                 </div>
             </section>
-        </main>
+        </article>
         <Footer />
     </div>
 </template>
@@ -43,7 +43,6 @@
     import { defineComponent } from 'vue';
     import TableOfContents from '@/components/TableOfContents.vue';
     import hljs from 'highlight.js';
-    import 'highlight.js/styles/github-dark.css';
     import isEmpty from 'lodash/isEmpty';
     // @ts-ignore
     import { VueShowdown } from 'vue-showdown';
@@ -56,6 +55,7 @@
     import fa from 'moment/locale/fa';
     import Footer from '@/components/Footer.vue';
     import { blogInterface } from '@/store';
+import { reduce } from 'lodash';
 
     export default defineComponent({
         name: 'ArticleView',
@@ -83,12 +83,34 @@
         methods: {
             ...mapActions(["get_article"])
         },
-        mounted() {
-            hljs.highlightAll()
+        updated() {
+            hljs.highlightAll();
+            document.title = this.article.title;
+            const tocLinks = document.querySelectorAll(".toc-heading");
+            const setActiveLink = () => {
+                tocLinks.forEach((link) => {
+                    const sectionId = link.getAttribute("href");
+                    // @ts-ignore
+                    const heading = document?.querySelector(sectionId);
+                    const rect = heading?.getBoundingClientRect();
+
+                    if (!rect) return
+
+                    if (rect?.bottom >= 0 && rect?.top >= 0) {
+                        link?.classList.remove("text-zinc-400")
+                        link?.classList.add("text-emerald-500")
+                    } else {
+                        link?.classList.add("text-zinc-400")
+                        link?.classList.remove("text-emerald-500")
+                    }
+                });
+            };
+
+            window.onscroll = setActiveLink;
+
         },
         async beforeMount() {
             await this.get_article(this.$route.params.slug);
-            document.title = this.article.title
         }
     })
 </script>
