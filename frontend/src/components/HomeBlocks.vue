@@ -132,13 +132,6 @@
     </main>
 </template>
 
-<style scoped>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
-    * {
-        font-family: 'Space Mono', monospace
-    }
-</style>
-
 <style>
     body {
         display: relative

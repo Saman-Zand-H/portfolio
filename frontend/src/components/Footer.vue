@@ -12,7 +12,7 @@
             </a>
         </div>
         <span class="font-semibold">
-            2023 - {{ year }} Saman Zand Haghighi
+            2023 - {{ year }} &copy; Saman Zand Haghighi
         </span>
     </footer>
 </template>

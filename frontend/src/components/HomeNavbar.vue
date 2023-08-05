@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-zinc-800 rounded-3xl w-full text-white flex flex-col shadow-lg animate__animated animate__fadeIn">
+    <div class="bg-zinc-800 h-fit sticky top-3 z-50 inset-x-0 rounded-3xl w-full text-white flex flex-col shadow-lg animate__animated animate__fadeIn">
         <nav class="h-16 flex items-center justify-between px-8 text-xl font-bold">
             <router-link class="text-white hover:text-zinc-200" :to="{ name: 'home' }">SamanZND</router-link>
             <button type="button" @click.prevent="isActive = !isActive"><i class="fa fa-bars text-2xl"></i></button>

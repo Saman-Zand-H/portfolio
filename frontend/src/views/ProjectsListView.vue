@@ -8,13 +8,6 @@
     </div>
 </template>
 
-<style scoped>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
-    * {
-        font-family: 'Space Mono', monospace
-    }
-</style>
-
 <script lang="ts">
     import { mapActions, mapState } from 'vuex';
     import { defineComponent } from 'vue';
