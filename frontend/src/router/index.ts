@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
         },
     },
     {
-        path: "/projects/:slug+",
+        path: "/projects/:slug",
         component: ProjectView,
         name: "project",
         meta: {
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
         },
     },
     {
-        path: "/blog/:slug+",
+        path: "/blog/:slug+/",
         component: ArticleView,
         name: "article",
         meta: {

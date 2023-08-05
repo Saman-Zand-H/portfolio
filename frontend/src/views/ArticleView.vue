@@ -55,7 +55,6 @@
     import fa from 'moment/locale/fa';
     import Footer from '@/components/Footer.vue';
     import { blogInterface } from '@/store';
-import { reduce } from 'lodash';
 
     export default defineComponent({
         name: 'ArticleView',
