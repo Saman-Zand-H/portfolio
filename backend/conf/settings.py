@@ -175,8 +175,6 @@ if env.str("ENVIRONMENT", 'production') == 'production':
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = "DENY"
-    
-    MIDDLEWARE.append('django.middleware.security.SecurityMiddleware')
 
 
 # Internationalization
