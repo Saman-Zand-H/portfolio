@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "-d", "./services/gunicorn.config.py", "conf.wsgi:application"]
+CMD ["gunicorn", "-d", "/usr/src/app/backend/gunicorn.config.py", "conf.wsgi:application"]

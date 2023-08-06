@@ -2,9 +2,9 @@ services:
   backend:
     build: 
       context: ./backend
-    command: gunicorn -c ./backend/services/gunicorn.config.py
-    expose: 
-      - "8000"
+    command: gunicorn -c /usr/src/app/backend/gunicorn.config.py conf.wsgi:application
+    ports:
+      - "8000:8000"
     volumes:
       - ./backend:/usr/src/app/backend
     depends_on:
@@ -28,22 +28,14 @@ services:
   frontend:
     build:
       context: ./frontend
-    expose: 
-      - "80"
+      args:
+        PRODUCTION_IGNORE: .dockerignore.prod
+    ports:
+      - "80:80"
     environment:
       - "VUE_APP_BACKEND_HOST=${BACKEND_HOST:-backend.samanznd.ir}"
     volumes:
-      - ./frontend:/usr/src/app/frontend/
-
-  nginx:
-    build:
-      context: ./nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-      - frontend
-    volumes: 
+      - ./frontend:/usr/src/app/frontend
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ${SSL_CERTS_DIR-/root/}:/etc/nginx/certs
 
