@@ -152,7 +152,7 @@ AUTH_USER_MODEL = 'users.UserModel'
 
 # Production Configurations
 if env.str("ENVIRONMENT", 'production') == 'production':
-    SECURE_SSL_REDIRECT = True
+    # SECURE_SSL_REDIRECT = True
     CSRF_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SECURE = True
