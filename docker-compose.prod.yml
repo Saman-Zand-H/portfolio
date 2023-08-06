@@ -1,5 +1,6 @@
 services:
   backend:
+    restart: always
     build: 
       context: ./backend
     command: gunicorn -c /usr/src/app/backend/gunicorn.config.py conf.wsgi:application
@@ -7,12 +8,15 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/usr/src/app/backend
+      - staticfiles_data:/usr/src/app/backend/staticfiles/
+      - media_data:/usr/src/app/backend/media/
     depends_on:
       - db
     environment:
       - "DEBUG=1"
 
   db:
+    restart: always
     image: postgres:13-alpine
     ports:
       - "5432:5432"
@@ -26,6 +30,7 @@ services:
       - "./backend/.env"
 
   frontend:
+    restart: always
     build:
       context: ./frontend
       args:
@@ -39,8 +44,10 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ${SSL_CERTS_DIR-/root/}:/etc/nginx/certs
       - /certs:/certs
-      - /usr/src/app/backend/staticfiles:/usr/src/app/backend/staticfiles
-      - /usr/src/app/backend/media:/usr/src/app/backend/media
+      - staticfiles_data:/usr/src/app/backend/staticfiles/
+      - media_data:/usr/src/app/backend/media/
 
 volumes:
   postgres_data:
+  staticfiles_data:
+  media_data:
