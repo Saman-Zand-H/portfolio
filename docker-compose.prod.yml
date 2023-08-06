@@ -36,6 +36,7 @@ services:
       - ./frontend:/usr/src/app/frontend
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ${SSL_CERTS_DIR-/root/}:/etc/nginx/certs
+      - /certs:/certs
 
 volumes:
   postgres_data:
