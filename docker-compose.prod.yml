@@ -9,8 +9,6 @@ services:
       - ./backend:/usr/src/app/backend
     depends_on:
       - db
-    environment:
-      - "ENVIRONMENT=development"
 
   db:
     image: postgres:13-alpine
