@@ -8,8 +8,8 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/usr/src/app/backend
-      - ./backend/staticfiles:/static
-      - ./backend/media:/media
+      - ./backend/staticfiles:/usr/src/app/backend/staticfiles
+      - ./backend/media:/usr/src/app/backend/media
     depends_on:
       - db
     environment:
@@ -44,8 +44,8 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ${SSL_CERTS_DIR-/root/}:/etc/nginx/certs
       - /certs:/certs
-      - ./backend/staticfiles:/static
-      - ./backend/media:/media
+      - ./backend/staticfiles:/usr/src/app/backend/staticfiles
+      - ./backend/media:/usr/src/app/backend/media
 
 volumes:
   postgres_data:
