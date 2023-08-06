@@ -29,24 +29,33 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-knb8h8w!zv%4=4kff2h60)n=-%e(c6sn4j_@s$@cbo2-ee(0u#'
+SECRET_KEY = env.str('SECRET_KEY', "django-insecure-knb8h8w!zv%4=4kff2h60)n=-%e(c6sn4j_@s$@cbo2-ee(0u#")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', 1)
+DEBUG = env.bool('DEBUG', 0)
 
 ALLOWED_HOSTS = [
     "backend",
     "172.17.0.1",
-    "localhost"
+    "localhost",
+    "whiteelli.tk",
+    "samanznd.ir",
+    "backend.samanznd.ir",
 ]
 
 SITE_ID = 1
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "https://localhost:8080",
-    "https://frontend:8080",
-    "http://frontend:8080",
+    "http://localhost",
+    "https://localhost",
+    "https://frontend",
+    "http://frontend",
+    "https://whiteelli.tk",
+    "http://whiteelli.tk",
+    "http://samanznd.ir",
+    "https://samanznd.ir",
+    "http://backend.samanznd.ir",
+    "https://backend.samanznd.ir",
 ]
 
 # Application definition
@@ -112,11 +121,11 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432
+        'NAME': env.str('DB_NAME', 'postgres'),
+        'USER': env.str('DB_USER', 'postgres'),
+        'PASSWORD': env.str('DB_PASSWORD', 'postgres'),
+        'HOST': env.str('DB_HOST', 'db'),
+        'PORT': env.int('DB_PORT', 5432)
     }
 }
 
@@ -140,6 +149,34 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.UserModel'
+
+# Production Configurations
+if env.str("ENVIRONMENT", 'production') == 'production':
+    SECURE_SSL_REDIRECT = True
+    CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_HTTPONLY = True
+    CSRF_USE_SESSIONS = True
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
+    
+    # todo: Content Security Policy
+    # CSP_DIRECTIVES = {
+    #     'default-src': ["'self'"],
+    #     'script-src': ["'self'"],
+    #     'style-src': ["'self'", "'unsafe-inline'"],
+    #     'img-src': ["'self'", "data:"],
+    # }
+    # CSP_REPORT_ONLY = True
+    # CSP_REPORT_URI = "/csp-report/"
+    
+    SECURE_HSTS_SECONDS = env.int('HSTS_AGE', 3600)
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = "DENY"
+    
+    MIDDLEWARE.append('django.middleware.security.SecurityMiddleware')
 
 
 # Internationalization

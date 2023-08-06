@@ -9,10 +9,11 @@ RUN apt update && apt install -y \
     build-essential libssl-dev xvfb curl wget \
     libffi-dev libpq-dev python-dev gcc unzip nano \
     daemonize dbus-user-session fontconfig gettext \
-    binutils libproj-dev git
+    binutils libproj-dev git && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
-CMD ["gunicorn", "conf.wsgi", "-b", "0.0.0.0:8000"]
+CMD ["gunicorn", "-d", "./services/gunicorn.config.py", "conf.wsgi:application"]

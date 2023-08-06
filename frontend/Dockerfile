@@ -1,15 +1,18 @@
-FROM node:20-alpine3.17
+FROM node:14-alpine AS build
 
 WORKDIR /usr/src/app/frontend
 
-COPY package.json package.json
-
-RUN npm i -g @vue/cli
-RUN npm i -g serve
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY . .
+RUN npm run build
 
-ENV HOST=0.0.0.0
+FROM nginx:alpine
 
-CMD ["npm", "run", "serve"]
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY --from=build /usr/src/app/frontend/dist /usr/share/nginx/html
+
+# Expose port 80 for Nginx (optional, only if needed to access from the host)
+EXPOSE 80
