@@ -7,5 +7,7 @@ Even though the project is deployed, it's still in its early stages of developme
 ## Todo
 
 [ ] Internalization
+
 [ ] RSS
+
 [ ] Push Notifications for Subscriptions
