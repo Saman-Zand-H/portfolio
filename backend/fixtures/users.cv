@@ -1,0 +1,23 @@
+[
+{
+    "model": "users.usermodel",
+    "pk": 1,
+    "fields": {
+        "uuid": "c27d72f9-2c67-46ce-b03c-b227e7a6bee5",
+        "password": "pbkdf2_sha256$600000$qDZjRMk9YkZIGqXzEpeqPL$px4G1UR52g2BDdda/Bc5l4f9Pph6Cj8kdPC9FfXEof8=",
+        "last_login": "2023-08-07T13:00:30.869Z",
+        "username": "saman",
+        "first_name": "saman",
+        "email": null,
+        "last_name": "zand",
+        "gender": "U",
+        "picture": "saman.jpg",
+        "is_active": true,
+        "is_staff": true,
+        "is_superuser": true,
+        "date_joined": "2023-08-02T14:59:52.193Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

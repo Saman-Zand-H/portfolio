@@ -399,6 +399,17 @@
     }
 },
 {
+    "model": "cv.technology",
+    "pk": 31,
+    "fields": {
+        "uuid": "2b9d59e0-4f43-4a33-ad56-0a67232222f2",
+        "name": "GraphQL",
+        "icon": "technologies/graphql-icon.svg",
+        "timestamp": "2023-08-07T13:05:24.274Z",
+        "url": "https://graphql.org"
+    }
+},
+{
     "model": "cv.imageprojectrelation",
     "pk": 1,
     "fields": {

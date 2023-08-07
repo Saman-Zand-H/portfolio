@@ -1,0 +1,57 @@
+[
+{
+    "model": "blog.tag",
+    "pk": 1,
+    "fields": {
+        "name": "test restaurant",
+        "slug": "test-restaurant"
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "thumbnail": "blog/thumbnails/vee-validate_CHGZN0Q.png",
+        "title": "Introduction to Laravel",
+        "subtitle": "a beginner's guide",
+        "slug": "introduction-to-laravel-part1",
+        "article": "<br>\r\n<span>\r\n\t<h1 id=\"main-course\" class=\"text-3xl mb-8\">\r\n     Main Course\r\n\t</h1>\r\n</span>\r\n\r\n```python\r\nimport turtle\r\n\r\n\r\nscreen = turtle.Screen()\r\nscreen.setup(400, 800)\r\n```\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Animi repellat asperiores facere corrupti dolorem dicta quasi ipsa cum aliquid nemo delectus facilis officiis, culpa at eaque voluptatum cupiditate nihil deleniti iste. Non tenetur sit sed ipsum fugit. Eligendi, dolorum quam quos illo ipsa maxime voluptas. Rerum, alias accusantium libero, facere et dolor odio nesciunt tempora tempore placeat numquam reprehenderit quos possimus commodi voluptatem. Ullam dolor, saepe adipisci vitae, tenetur sapiente iure corporis facere unde odit voluptas! Animi non pariatur eaque ipsum, rerum assumenda tempore beatae provident totam maiores? Beatae ipsam inventore dicta tenetur voluptates consequatur natus eius est id? Quaerat mollitia perferendis totam rem, vero consectetur esse. Voluptas, recusandae sequi laboriosam quisquam perferendis voluptatum? Eligendi dolorum ea ut hic vel a praesentium reprehenderit, iusto ab non porro aliquid magnam tenetur temporibus maxime cum quibusdam quisquam ipsum labore perspiciatis, debitis impedit voluptas? Tenetur autem praesentium incidunt reprehenderit sunt? Maxime iste natus nobis tenetur earum ad vel voluptas, ut temporibus deserunt soluta aut praesentium rem quod excepturi possimus voluptatibus illo. Officiis, exercitationem quia nihil vel quasi rem quas, quidem sunt eaque consectetur ea fuga fugit nesciunt beatae similique debitis. Soluta accusamus maxime distinctio, autem eveniet ipsam hic facilis repudiandae vero, aliquam unde omnis, totam nisi sapiente quisquam sunt ipsum maiores. Mollitia, assumenda magnam! Veniam inventore provident consequatur ullam at voluptatibus, velit odit atque? Reprehenderit praesentium aspernatur ipsam sunt odio rem tempora labore rerum itaque, repudiandae aliquam commodi temporibus, natus necessitatibus deserunt non blanditiis! Nemo, neque magnam. Voluptatem fuga explicabo repudiandae. Enim ad suscipit recusandae necessitatibus animi quibusdam nihil velit laborum officia illo, numquam blanditiis harum cupiditate dolore perferendis sit molestias vel nobis maxime, magni quod. Praesentium, illum vel! Quos voluptatibus nulla, doloribus possimus vitae, modi consequatur tempora, voluptatem rem amet iste adipisci ut consectetur quibusdam. Labore aut dolorem ipsa, minima unde hic consectetur veritatis ab quod praesentium quae? Nemo culpa doloremque ullam. Ut earum aspernatur laboriosam pariatur dolorem facilis unde voluptatem ducimus numquam. Numquam illum ut, voluptas excepturi reprehenderit alias et distinctio labore laudantium eligendi! Soluta aspernatur dolores impedit sunt suscipit praesentium eaque vero, velit explicabo vel corrupti delectus ab sapiente voluptatum esse possimus dolorum dignissimos maxime at consectetur obcaecati? Doloremque autem saepe iusto fugiat molestias sit id, minus dicta, eum aliquid sed obcaecati reprehenderit suscipit magni! Maiores quos veritatis provident magnam ratione iste sed tempora, consectetur itaque totam, eveniet beatae, dicta repudiandae magni asperiores quas quod non odio eaque quaerat. Alias tempore dolorem laboriosam ex eum qui animi maxime odio suscipit ipsam exercitationem sequi eaque dicta reiciendis delectus sit\r\n\r\n\r\n\r\n<h2 class=\"text-xl my-5\" id=\"main-reasons\">\r\nMain Reasons\r\n</h2>\r\n\r\n\r\n\r\n\r\nconsequuntur voluptas iure, doloremque repellendus fugiat? Fuga, pariatur rem modi, itaque porro numquam nesciunt excepturi iure vero quae nihil neque cumque, aspernatur rerum tempora enim ea commodi consectetur? Nostrum officiis molestias odit asperiores tenetur, ducimus provident ipsum assumenda quaerat quam illo voluptatem? Incidunt libero velit animi, suscipit facere laborum culpa aut, officia\r\n\r\n<span>\r\n\t<h1 class=\"text-3xl\" id=\"heading-1\">\r\n\t\tHeading\r\n\t</h1>\r\n</span>\r\n\r\nperspiciatis ut distinctio et molestiae dolore deserunt error at in ea asperiores, ducimus dolores sed porro quis nostrum voluptate. Facilis id amet iste perferendis quos laborum quam eum, numquam impedit?",
+        "updated_at": "2023-08-07T13:09:27.807Z",
+        "created_at": "2023-08-04T17:13:05.322Z",
+        "tags": [
+            1
+        ]
+    }
+},
+{
+    "model": "blog.heading",
+    "pk": 1,
+    "fields": {
+        "article": 3,
+        "heading_text": "Main Course",
+        "heading_id": "main-course",
+        "parent_heading": null
+    }
+},
+{
+    "model": "blog.heading",
+    "pk": 2,
+    "fields": {
+        "article": 3,
+        "heading_text": "Heading",
+        "heading_id": "heading-1",
+        "parent_heading": null
+    }
+},
+{
+    "model": "blog.heading",
+    "pk": 3,
+    "fields": {
+        "article": 3,
+        "heading_text": "Reasons",
+        "heading_id": "main-reasons",
+        "parent_heading": 1
+    }
+}
+]
