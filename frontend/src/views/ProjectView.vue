@@ -49,7 +49,7 @@
                     <span class="flex items-center gap-4">
                         <i class="fa fab fa-github text-slate-900 text-4xl"></i>
                         <a href="https://github.com/saman-zand-h/pezeshkino" class="hover:underline underline-offset-2">
-                            https://github.com/saman-zand-h/pezeshkino
+                            Pezeshkino
                         </a>
                     </span>
                 </div>
