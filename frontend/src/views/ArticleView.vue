@@ -4,7 +4,7 @@
         <article class="text-start flex flex-col gap-8 p-10">
             <header class="flex flex-col gap-5">
                 <span>
-                    <h1 class="text-5xl font-semibold">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold">
                         {{ article.title }}
                     </h1>
                 </span>
@@ -16,11 +16,10 @@
                 </div>
 
                 <span class="flex gap-3 text-base text-zinc-300">
-                    <h3 class="" style="direction: rtl">
+                    <h3 class="border-s-2 border-emerald-400 ps-3" style="direction: rtl">
                         {{ jmoment(article.updated_at).format("jMMMM jD , jYYYY") }}
                         Published
                     </h3>
-                    <h3 class="text-emerald-400">|</h3>
                     <h3 class="">{{ calculatReadingTime() }} min. read</h3>
                 </span>
             </header>
@@ -29,6 +28,9 @@
                 <aside class="w-full xl:w-1/3 xl:sticky right-0 top-28 h-fit" v-if="!isEmpty(article.toc)">
                     <TableOfContents :toc="article.toc" />
                 </aside>
+
+                <hr class="xl:hidden">
+
                 <div class="w-full" id="article">
                     <VueShowdown flavor="github" :markdown="article.article"  />
                 </div>

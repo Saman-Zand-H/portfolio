@@ -1,11 +1,16 @@
 <template>
     <HomeSidebar :isActive="isActive" @toggle-sidebar="isActive = !isActive" />
-    <div class="fixed w-full h-full bg-zinc-700/50 z-20" v-if="isActive"></div>
+    <div class="fixed w-full min-h-screen max-h-full bg-zinc-700/50 z-20" v-if="isActive"></div>
     <main class="p-5">
-        <div class="grid grid-cols-1 w-full md:grid-cols-2 gap-2">
-            <div class="bg-transparent grid grid-rows-2 xl:grid-rows-6 gap-2">
+        <div class="flex flex-col gap-3 md:grid grid-cols-1 w-full md:grid-cols-2 md:gap-2">
+            <div class="rounded-3xl md:hidden animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white">
+                    <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
+                    <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
+                </div>
+            <div class="bg-transparent flex flex-col gap-3 md:grid grid-rows-2 xl:grid-rows-6 md:gap-2">
+                <!-- The big text box at the top -->
                 <div class="rounded-3xl animate__animated animate__fadeInUp flex flex-wrap gap-x-3 items-bae text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] md:leading-none">
-                    <span class="text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
+                    <span class="text-3xl sm:text-4xl md:text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
                         {{ word }}
                     </span>
                     <span class="rounded-full mt-2 bg-violet-500 hover:bg-violet-500/80 hover:cursor-pointer transition-colors duration-200 py-1 px-3 ms-2 flex items-center">
@@ -13,23 +18,24 @@
                         &#128075;
                     </span>
                 </div>
+                <!-- The vibrant boxes -->
                 <div class="grid grid-cols-3 gap-4 row-span-1 xl:row-span-3 h-full w-full bg-transparent text-center">
-                    <div class="bg-green-500 rounded-3xl animate__animated animate__fadeInUp px-2 flex flex-col gap-2 items-center justify-center text-white">
+                    <div class="bg-green-500 rounded-3xl animate__animated animate__fadeInUp p-6 flex flex-col gap-2 items-center justify-center text-white">
                         <span class="font-bold text-2xl">1</span>
                         <small class="text-xs">Year of Experince in Vue.js</small>
                     </div>
-                    <div class="bg-amber-300 rounded-3xl animate__animated animate__fadeInUp px-2 flex items-center justify-center text-black flex-col gap-2">
+                    <div class="bg-amber-300 rounded-3xl animate__animated animate__fadeInUp p-6 flex items-center justify-center text-black flex-col gap-2">
                         <span class="font-bold text-2xl">+4</span>
                         <small class="text-xs">Years of Experince in python</small>
                     </div>
-                    <div class="bg-rose-400 rounded-3xl animate__animated animate__fadeInUp px-2 flex items-center justify-center text-white flex-col gap-2">
+                    <div class="bg-rose-400 rounded-3xl animate__animated animate__fadeInUp p-6 flex items-center justify-center text-white flex-col gap-2">
                         <span class="font-bold text-2xl">+10</span>
                         <small class="text-xs">Handled Projects</small>
                     </div>
                 </div>
             </div>
             <div class="w-full flex flex-col gap-3 md:grid sm:grid-rows-6 bg-transparent items-start">
-                <div class="rounded-3xl animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white">
+                <div class="rounded-3xl hidden md:flex animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 justify-between font-semibold p-5 text-white">
                     <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
                     <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
                 </div>
@@ -38,12 +44,12 @@
                         <img class="md:hidden w-full h-fit" :src="cv.image">
                     </div>
                     <div class="rounded-3xl w-full md:w-1/2 bg-transparent grid grid-cols-1 gap-3">
-                        <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-6 sm:py-3 lg:py-0">
+                        <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center flex-wrap gap-5 px-6 py-6 lg:py-0">
                             <span>Name :</span>
                             <b class="font-bold">Saman Zand</b>
                         </div>
-                        <div class="row-span-3 animate__animated animate__fadeInUp flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-4">
-                            <div class="flex justify-between w-full px-2">
+                        <div class="row-span-3 animate__animated animate__fadeInUp flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-5">
+                            <div class="flex justify-between w-full p-2 flex-wrap gap-5">
                                 <span>Based in :</span>
                                 <b>{{ cv.location }}</b>
                             </div>
@@ -51,11 +57,11 @@
                                 <img class="w-full h-full md:hidden" src="../assets/mashhadMap.png">
                             </div>
                         </div>
-                        <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center px-6 py-5 sm:py-3 lg:py-0">
-                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-github bg-slate-800 text-2xl"></i></a>
-                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-linkedin bg-blue-900 text-2xl"></i></a>
-                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-telegram bg-cyan-700 text-2xl"></i></a>
-                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-2xl"></i></a>
+                        <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between gap-2 items-center flex-wrap px-6 py-6 lg:py-0">
+                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-github bg-slate-800 text-3xl md:text-2xl"></i></a>
+                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-linkedin bg-blue-900 text-3xl md:text-2xl"></i></a>
+                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-telegram bg-cyan-700 text-3xl md:text-2xl"></i></a>
+                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-3xl md:text-2xl"></i></a>
                         </div>
                     </div>
                 </div>
@@ -74,14 +80,11 @@
                         delay: 2500,
                         disableOnInteraction: false,
                     }"
-                    :pagination="{
-                        clickable: true,
-                    }"
                     :navigation="true"
                     :modules="modules"
                     class="mt-5"
                 >
-                    <swiper-slide class="pb-20 sm:pb-16" v-for="tech in technologies">
+                    <swiper-slide class="p-6" v-for="tech in technologies">
                         <a :href="tech.url" class="rounded-2xl flex items-center justify-center h-fit p-1">
                             <img class="hover:opacity-80 transition-opacity duration-300" width="60" height="70" :src="tech.icon" :alt="tech.name">
                         </a>
@@ -140,13 +143,12 @@
 
 <script lang="ts">
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import BlogPortfolioCard from './BlogPortfolioCard.vue';
 import HomeSidebar from './HomeSidebar.vue';
 import { mapState, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
-// @ts-ignore
 import isEmpty from 'lodash/isEmpty';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -190,7 +192,7 @@ export default defineComponent({
     setup() {
         return {
             isEmpty,
-            modules: [Autoplay, Pagination, Navigation],
+            modules: [Autoplay, Navigation],
             swiperBreakpoints: {
                 470: {
                     slidesPerView: 2,

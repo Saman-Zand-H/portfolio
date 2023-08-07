@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebarContainer" :class="[isActive ? 'w-full md:w-1/3 lg: 1/4' : 'w-0', 'absolute h-full z-50 right-0 py-7 inset-y-0 bg-zinc-900 transition-all duration-300 overflow-hidden']">
+    <div id="sidebarContainer" :class="[isActive ? 'w-full md:w-1/3 lg: 1/4' : 'w-0', 'fixed min-h-screen max-h-full z-50 right-0 py-7 inset-y-0 bg-zinc-900 transition-all duration-300 overflow-hidden']">
         <div class="my-6">
             <router-link :to="{ name: 'home' }" class="text-white font-mono text-3xl">
                 SamanZND

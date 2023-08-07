@@ -68,7 +68,6 @@ class ArticleNode(DjangoObjectType):
         }
 
     def resolve_tags(self, info):
-        print(self.tags)
         return [
             {
                 "name": i.name,
