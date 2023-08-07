@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="w-full flex flex-col gap-3 md:grid sm:grid-rows-6 bg-transparent items-start">
-                <div class="rounded-3xl animate__animated animate__fadeInUp w-full row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white" style="font-size: 1.7vw">
+                <div class="rounded-3xl animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white">
                     <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
                     <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
                 </div>

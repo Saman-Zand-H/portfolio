@@ -12,8 +12,6 @@ services:
       - ./backend/media:/usr/src/app/backend/media
     depends_on:
       - db
-    environment:
-      - "DEBUG=1"
 
   db:
     restart: always
