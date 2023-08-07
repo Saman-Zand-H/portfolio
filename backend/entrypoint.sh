@@ -1,7 +1,7 @@
 python manage.py collectstatic --no-input
 python manage.py migrate
 python manage.py loaddata fixtures/cv.json
-if [-z ${ENVIRONMENT+x} && "$ENVIRONMENT" == "production"]
+if ["$ENVIRONMENT" == "production"]
 then
 	gunicorn -c /usr/src/app/backend/gunicorn.config.py conf.wsgi:application
 else
