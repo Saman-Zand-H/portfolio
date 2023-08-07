@@ -4,7 +4,7 @@ python manage.py loaddata fixtures/cv.json
 python manage.py loaddata fixtures/users.json
 python manage.py loaddata fixtures/blog.json
 
-if ("$ENVIRONMENT" == "production")
+if [ test -n $ENVIRONMENT &&  "$ENVIRONMENT" = "production" ]
 then
 	gunicorn -c /usr/src/app/backend/gunicorn.config.py conf.wsgi:application
 else
