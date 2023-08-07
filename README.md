@@ -11,3 +11,5 @@ Even though the project is deployed, it's still in its early stages of developme
 - [ ] RSS
 
 - [ ] Push Notifications for Subscriptions
+
+- [ ] Use Caching for Performance Improvement
