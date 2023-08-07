@@ -2,15 +2,15 @@
     <HomeSidebar :isActive="isActive" @toggle-sidebar="isActive = !isActive" />
     <div class="fixed w-full min-h-screen max-h-full bg-zinc-700/50 z-20" v-if="isActive"></div>
     <main class="p-5">
-        <div class="flex flex-col gap-3 md:grid grid-cols-1 w-full md:grid-cols-2 md:gap-2">
-            <div class="rounded-3xl md:hidden animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white">
-                    <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
-                    <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
-                </div>
-            <div class="bg-transparent flex flex-col gap-3 md:grid grid-rows-2 xl:grid-rows-6 md:gap-2">
+        <div class="flex flex-col gap-3 lg:grid grid-cols-1 w-full lg:grid-cols-2 lg:gap-2">
+            <div class="rounded-3xl lg:hidden animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 flex justify-between font-semibold p-5 text-white">
+                <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
+                <button type="button" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
+            </div>
+            <div class="bg-transparent flex flex-col gap-3 lg:grid grid-rows-2 xl:grid-rows-6 lg:gap-2">
                 <!-- The big text box at the top -->
-                <div class="rounded-3xl animate__animated animate__fadeInUp flex flex-wrap gap-x-3 items-bae text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] md:leading-none">
-                    <span class="text-3xl sm:text-4xl md:text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
+                <div class="rounded-3xl animate__animated animate__fadeInUp flex flex-wrap gap-x-3 items-bae text-start row-span-1 xl:row-span-3 h-full bg-zinc-800/70 font-bold p-6 text-white leading-[2.6rem] lg:leading-none">
+                    <span class="text-3xl sm:text-4xl lg:text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
                         {{ word }}
                     </span>
                     <span class="rounded-full mt-2 bg-violet-500 hover:bg-violet-500/80 hover:cursor-pointer transition-colors duration-200 py-1 px-3 ms-2 flex items-center">
@@ -34,41 +34,41 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex flex-col gap-3 md:grid sm:grid-rows-6 bg-transparent items-start">
-                <div class="rounded-3xl hidden md:flex animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 justify-between font-semibold p-5 text-white">
-                    <router-link :to="{ name: 'home' }" class="font-sans text-white hover:text-zinc-200">SamanZND</router-link>
+            <div class="w-full flex flex-col gap-2 lg:grid sm:grid-rows-6 bg-transparent items-start">
+                <div class="rounded-3xl hidden lg:flex animate__animated animate__fadeInUp w-full text-xl row-span-1 bg-zinc-800/70 justify-between font-semibold p-5 text-white">
+                    <router-link :to="{ name: 'home' }" class="font-sans text-white text-lg md:text-2xl hover:text-zinc-200">SamanZND</router-link>
                     <button type="button" id="sidebarBurger" @click.prevent="isActive = !isActive" class="hover:cursor-pointer hover:text-zinc-300 transition-colors duration-300"><i class="fa fa-bars"></i></button>
                 </div>
-                <div class="flex md:flex-row flex-col gap-3 w-full h-full row-span-5 bg-transparent text-center">
-                    <div class="h-auto w-full animate__animated animate__fadeInUp md:w-1/2 rounded-3xl overflow-hidden bg-zinc-800 md:bg-cover" :style="`background-image: url(${cv.image})`">
-                        <img class="md:hidden w-full h-fit" :src="cv.image">
+                <div class="flex lg:flex-row flex-col gap-3 w-full h-full row-span-5 bg-transparent text-center">
+                    <div class="h-auto w-full animate__animated animate__fadeInUp lg:w-1/2 rounded-3xl overflow-hidden bg-zinc-800 lg:bg-cover" :style="`background-image: url(${cv.image})`">
+                        <img class="lg:hidden w-full h-fit" :src="cv.image">
                     </div>
-                    <div class="rounded-3xl w-full md:w-1/2 bg-transparent grid grid-cols-1 gap-3">
+                    <div class="rounded-3xl w-full lg:w-1/2 bg-transparent grid grid-cols-1 gap-3">
                         <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between items-center flex-wrap gap-5 px-6 py-6 lg:py-0">
-                            <span>Name :</span>
-                            <b class="font-bold">Saman Zand</b>
+                            <span class="text-base md:text-xl">Name :</span>
+                            <b class="text-base md:text-xl">Saman Zand</b>
                         </div>
                         <div class="row-span-3 animate__animated animate__fadeInUp flex-col gap-3 bg-zinc-800/70 rounded-3xl text-white flex justify-start items-center p-5">
                             <div class="flex justify-between w-full p-2 flex-wrap gap-5">
-                                <span>Based in :</span>
-                                <b>{{ cv.location }}</b>
+                                <span class="text-lg md:text-xl">Based in :</span>
+                                <b class="text-base md:text-xl">{{ cv.location }}</b>
                             </div>
                             <div class="rounded-3xl overflow-hidden w-full h-full bg-cover" :style="`background-image: url(${require('../assets/mashhadMap.png')})`">
-                                <img class="w-full h-full md:hidden" src="../assets/mashhadMap.png">
+                                <img class="w-full h-full lg:hidden" src="../assets/mashhadMap.png">
                             </div>
                         </div>
                         <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between gap-2 items-center flex-wrap px-6 py-6 lg:py-0">
-                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-github bg-slate-800 text-3xl md:text-2xl"></i></a>
-                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-linkedin bg-blue-900 text-3xl md:text-2xl"></i></a>
-                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-telegram bg-cyan-700 text-3xl md:text-2xl"></i></a>
-                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 md:p-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-3xl md:text-2xl"></i></a>
+                            <a href="https://github.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 lg:p-2 fa-github bg-slate-800 text-3xl lg:text-2xl"></i></a>
+                            <a href="https://linkedin.com/saman-zand-h" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 lg:p-2 fa-linkedin bg-blue-900 text-3xl lg:text-2xl"></i></a>
+                            <a href="https://telegram.me/robsaman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 lg:p-2 fa-telegram bg-cyan-700 text-3xl lg:text-2xl"></i></a>
+                            <a href="https://instagram.com/t.n.saman" class="inline-block"><i class="fa fab rounded-[100%] hover:opacity-90 p-3 lg:p-2 fa-instagram bg-gradient-to-br from-orange-400 to-purple-700 text-3xl lg:text-2xl"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="rounded-3xl bg-zinc-800 mt-3 animate__animated animate__fadeInUp p-6 text-white text-left">
-            <h2 class="font-semibold text-2xl">My Skills:</h2>
+            <h2 class="font-semibold text-lg md:text-2xl">My Skills:</h2>
             <div class="my-3">
                 <swiper
                     :space-between="50"
@@ -95,21 +95,21 @@
         <div class="rounded-3xl w-full bg-zinc-800 mt-3 animate__animated animate__fadeInUp p-6 text-white text-left">
             <div class="flex justify-between">
                 <span>
-                    <h2 class="font-semibold text-2xl">My Blog:</h2>                                                                                                                                                                                                                                                                                                                                                                                                    
+                    <h2 class="font-semibold text-lg md:text-2xl">My Blog:</h2>                                                                                                                                                                                                                                                                                                                                                                                                    
                 </span>
                 <router-link :to="{ name: 'blog' }">
-                    <h2 class="font-semibold text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
+                    <h2 class="font-semibold text-base md:text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
                 </router-link>
             </div>
             <div class="w-full p-5">
                 <BlogPortfolioCard v-for="article in articles" :article="article" />
             </div>
         </div>
-        <div class="md:grid w-full md:grid-cols-5 flex flex-col gap-3 mt-3">
+        <div class="lg:grid w-full lg:grid-cols-5 flex flex-col gap-3 mt-3">
             <div class="rounded-3xl col-span-3 animate__animated animate__fadeInUp bg-zinc-800/70 row text-white p-6 text-left">
-                <div class="flex justify-between text-xl">
-                    <b>Projects Portfolio</b>
-                    <router-link :to="{ name: 'projects' }" class="text-zinc-400 transition-colors duration-200 hover:text-zinc-400/80">
+                <div class="flex justify-between">
+                    <b class="text-lg md:text-2xl">Projects</b>
+                    <router-link :to="{ name: 'projects' }" class="text-zinc-400 text-base md:text-xl transition-colors duration-200 hover:text-zinc-400/80">
                         View All
                     </router-link>
                 </div>
@@ -124,8 +124,8 @@
             </div>
             <div class="rounded-3xl w-full col-span-2 animate__animated animate__fadeInUp bg-zinc-800/70 text-white p-6 text-xl text-left">
                 <div class="flex justify-between">
-                    <b>About</b>
-                    <span class="text-zinc-400">Resume</span>
+                    <b class="text-lg md:text-2xl">About</b>
+                    <span class="text-zinc-400 text-base md:text-xl">Resume</span>
                 </div>
                 <div class="mt-2 text-sm text-zinc-300">
                     <small>{{ cv.about }}</small>

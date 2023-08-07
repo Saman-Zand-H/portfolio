@@ -100,16 +100,20 @@
                     // @ts-ignore
                     const heading = document?.querySelector(sectionId);
                     const rect = heading?.getBoundingClientRect();
+                    const height = window.innerHeight
 
                     if (!rect) return
 
                     if (rect?.bottom >= 0 && rect?.top >= 0) {
-                        link?.classList.remove("text-zinc-400")
-                        link?.classList.add("text-emerald-500")
-                    } else {
-                        link?.classList.add("text-zinc-400")
-                        link?.classList.remove("text-emerald-500")
-                    }
+                        if (rect?.top < height && rect?.bottom < height) {
+                            link?.classList.remove("text-zinc-400")
+                            link?.classList.add("text-emerald-500")
+                            // if this condition is true break out of the function
+                            return 
+                        }
+                    } 
+                    link?.classList.add("text-zinc-400")
+                    link?.classList.remove("text-emerald-500")
                 });
             };
 

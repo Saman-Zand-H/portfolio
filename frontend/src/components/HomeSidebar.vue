@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebarContainer" :class="[isActive ? 'w-full md:w-1/3 lg: 1/4' : 'w-0', 'fixed min-h-screen max-h-full z-50 right-0 py-7 inset-y-0 bg-zinc-900 transition-all duration-300 overflow-hidden']">
+    <div id="sidebarContainer" :class="[isActive ? 'w-full sm:w-1/2 md:w-1/3 lg: 1/4' : 'w-0', 'fixed h-screen z-50 right-0 py-7 inset-y-0 bg-zinc-900 transition-all duration-300 overflow-hidden']">
         <div class="my-6">
             <router-link :to="{ name: 'home' }" class="text-white font-mono text-3xl">
                 SamanZND
@@ -32,8 +32,17 @@
             window.onclick = e => {
                 if (this.isActive && e.target instanceof Element) {
                     const sidebar = document.getElementById("sidebarContainer");
-                    const sidebarBurger = document.getElementById("sidebarBurger")
-                    if (sidebarBurger?.contains(e.target)) return;
+                    const sidebarBurger = document.getElementById("sidebarBurger");
+                    
+                    // we don't want to toggle if either the togglable button is hidden
+                    // if the click is within the sidebar
+                    if (
+                        sidebarBurger?.parentElement
+                        && (
+                            sidebarBurger?.contains(e.target) 
+                            || window.getComputedStyle(sidebarBurger?.parentElement).display == "none"
+                        )
+                    ) return;
                     if (!sidebar?.contains(e.target)) this.$emit("toggle-sidebar");
                 }
             }

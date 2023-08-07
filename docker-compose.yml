@@ -28,6 +28,8 @@ services:
   frontend:
     build: 
       context: ./frontend
+    environment:
+      - "ENVIRONMENT=development"
     ports:
       - "80:80"
     volumes:
