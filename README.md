@@ -7,9 +7,7 @@ Even though the project is deployed, it's still in its early stages of developme
 ## Todo
 
 - [ ] Internalization
-
-- [ ] RSS
-
+- [x] RSS
+- [ ] Add Subscriptions
 - [ ] Push Notifications for Subscriptions
-
 - [ ] Use Caching for Performance Improvement
