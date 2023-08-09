@@ -31,7 +31,7 @@ services:
     restart: always
     build:
       context: ./frontend
-      dockerfile: /usr/src/app/frontend/Dockerfile.prod
+      dockerfile: Dockerfile.prod
     ports:
       - "80:80"
     volumes:
