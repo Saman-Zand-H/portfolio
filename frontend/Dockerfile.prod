@@ -8,7 +8,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-RUN mv dist ../dist && rm -rf . && mv ../dist .
+RUN mv dist ../dist && rm -rf ./* && mv ../dist .
 
 
 FROM nginx:alpine
