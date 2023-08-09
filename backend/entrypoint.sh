@@ -8,5 +8,5 @@ if [ "$ENVIRONMENT" = "development" ]
 then
 	python manage.py runserver 0.0.0.0:8000
 else
-	hypercorn -c python:hypercorn.config.py
+	hypercorn -c python:hypercorn.config conf.asgi:application
 fi

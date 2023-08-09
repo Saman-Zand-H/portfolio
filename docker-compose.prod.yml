@@ -3,7 +3,7 @@ services:
     restart: always
     build: 
       context: ./backend
-    command: hypercorn -c python:hypercorn.config.py
+    command: hypercorn -c python:hypercorn.config conf.asgi:application
     ports:
       - "8000:8000"
     volumes:
