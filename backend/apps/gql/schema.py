@@ -83,9 +83,17 @@ class Query(graphene.ObjectType):
     articles = DjangoFilterConnectionField(ArticleNode)
     
     def resolve_article(self, info, slug):
-        article_qs = Article.objects.filter(slug=slug)
-        return article_qs.first() if article_qs.exists() else None
+        article_qs = (
+            Article
+            .objects
+            .prefetch_related("tags")
+            .filter(slug=slug)
+        )
+        return article_qs.first() if article_qs.exists() else None    
     
+    def resolve_articles(self, info):
+        articles = Article.objects.prefetch_related("tags").all()
+        return articles
     
     
 schema = graphene.Schema(query=Query)
