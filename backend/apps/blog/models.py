@@ -25,7 +25,7 @@ class Tag(models.Model):
         # avoiding dupication with different casings
         self.name = self.name.lower()
         return super().save(*args, **kwargs)
-        
+    
 
 class Article(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

@@ -31,8 +31,7 @@ services:
     restart: always
     build:
       context: ./frontend
-      args:
-        PRODUCTION_IGNORE: .dockerignore.prod
+      dockerfile: ./frontend/Dockerfile.prod
     ports:
       - "80:80"
     volumes:

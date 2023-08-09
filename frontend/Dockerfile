@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build
+FROM node:18-alpine
 
 WORKDIR /usr/src/app/frontend
 
@@ -6,15 +6,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
-RUN npm run build
 
-FROM nginx:alpine
+EXPOSE 8080
 
-RUN rm /etc/nginx/conf.d/default.conf
-
-COPY --from=build /usr/src/app/frontend/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf 
-
-EXPOSE 80
-
-ENTRYPOINT [ "sh", "entrypoint.sh" ]
+CMD [ "npm", "run", "serve" ]

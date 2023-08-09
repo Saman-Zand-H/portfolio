@@ -2,7 +2,7 @@ import HomeView from "@/views/HomeView.vue";
 import ArticleView from "@/views/ArticleView.vue";
 import ProjectView from "@/views/ProjectView.vue";
 import ProjectsListView from "@/views/ProjectsListView.vue";
-import ArticlesListView from "@/views/ArticlesListView.vue";
+import BlogView from "@/views/BlogView.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: "/blog",
-        component: ArticlesListView,
+        component: BlogView,
         name: "blog",
         meta: {
             title: "Blog",

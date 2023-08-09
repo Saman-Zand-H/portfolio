@@ -21,6 +21,10 @@
                         <i class="fa fab fa-linkedin text-3xl"></i>
                         LinkedIn
                     </a>
+                    <a href="/rss" class="flex items-center gap-3 hover:text-amber-700 ease-in transition-colors duration-200">
+                        <i class="fa fas fa-rss-square text-3xl"></i>
+                        RSS
+                    </a>
                 </span>
             </span>
             <div class="my-14 flex flex-col gap-5 animate__animated animate__fadeInUp">
@@ -51,7 +55,7 @@
     import { toInteger } from 'lodash';
 
     export default defineComponent({
-        name: 'ArticlesListView',
+        name: 'BlogView',
         components: {
             BlogPortfolioCard,
             HomeNavbar,

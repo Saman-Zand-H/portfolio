@@ -22,5 +22,9 @@ urlpatterns = [
     path(
         route="graphql/v1/",
         view=include('gql.urls')
+    ),
+    path(
+        route="",
+        view=include("blog.urls")
     )
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
