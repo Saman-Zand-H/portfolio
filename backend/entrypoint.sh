@@ -8,5 +8,5 @@ if [ "$ENVIRONMENT" = "development" ]
 then
 	python manage.py runserver 0.0.0.0:8000
 else
-	daphne -b 0.0.0.0 -p 8000 -e ssl:443:privateKey=/certs/private.key:certKey=/certs/cert.pem conf.asgi:application
+	python manage.py runserver 0.0.0.0:8000
 fi
