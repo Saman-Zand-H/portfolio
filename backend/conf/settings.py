@@ -203,7 +203,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = "media"
 
 STORAGES = {
-    "staticfiles": {
+    "default": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
     }
 }
