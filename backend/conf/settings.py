@@ -159,7 +159,6 @@ if env.str("ENVIRONMENT", 'production') == 'production':
     CSRF_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'Lax'
     
     # todo: Content Security Policy
     # CSP_DIRECTIVES = {
@@ -171,9 +170,9 @@ if env.str("ENVIRONMENT", 'production') == 'production':
     # CSP_REPORT_ONLY = True
     # CSP_REPORT_URI = "/csp-report/"
     
-    # SECURE_HSTS_SECONDS = env.int('HSTS_AGE', 3600)
-    # SECURE_HSTS_PRELOAD = True
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_SECONDS = env.int('HSTS_AGE', 3600)
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = "DENY"
 
