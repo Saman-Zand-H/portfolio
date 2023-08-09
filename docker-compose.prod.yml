@@ -3,7 +3,7 @@ services:
     restart: always
     build: 
       context: ./backend
-    command: gunicorn -c /usr/src/app/backend/gunicorn.config.py conf.wsgi:application
+    command: hypercorn --config conf.asgi:application/hypercorn.config.py
     ports:
       - "8000:8000"
     volumes:

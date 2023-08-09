@@ -8,5 +8,5 @@ if [ "$ENVIRONMENT" = "development" ]
 then
 	python manage.py runserver 0.0.0.0:8000
 else
-	gunicorn -c /usr/src/app/backend/gunicorn.config.py conf.wsgi:application
+	hypercorn --config conf.asgi:application/hypercorn.config.py
 fi
