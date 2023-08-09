@@ -8,9 +8,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Remove unnecessary files and folders to reduce size
-RUN find /usr/src/app/frontend -type f ! -name 'nginx.conf' -exec rm -f {} + && \
-    find /usr/src/app/frontend -type d ! -name 'dist' -exec rm -rf {} +
+RUN mv dist ../dist && rm -rf . && mv ../dist .
 
 
 FROM nginx:alpine
