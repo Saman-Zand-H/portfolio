@@ -3,7 +3,7 @@ services:
     restart: always
     build: 
       context: ./backend
-    command: daphne -b 0.0.0.0 -p 8000 -e ssl:8000:privateKey=/certs/private.key:certKey=/certs/cert.pem conf.asgi:application
+    command: daphne -b 0.0.0.0 -p 8000 -e ssl:443:privateKey=/certs/private.key:certKey=/certs/cert.pem conf.asgi:application
     ports:
       - "8000:8000"
     volumes:
