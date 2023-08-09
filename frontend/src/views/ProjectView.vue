@@ -59,11 +59,9 @@
     </div>
 </template>
 
-
 <script lang="ts">
     import 'swiper/css';
     import 'swiper/css/navigation';
-    import 'swiper/css/pagination';
     import { defineComponent } from 'vue';
     import { mapState, mapActions } from 'vuex';
     import projectsInterface from '@/store/types/projects';
@@ -84,7 +82,7 @@
             ...mapState(["projects"]),
             project(): projectsInterface {
                 const slug = this.$route.params["slug"]
-                return this.projects.filter((v: projectsInterface) => v.slug === slug)[0]
+                return this.projects.filter((v: projectsIn                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  terface) => v.slug === slug)[0]
             }
         },
         methods: {

@@ -1,6 +1,6 @@
-if [ "$ENVIRONMENT" = "development" ]
+if [ "$ENVIRONMENT" != "development" ]
 then
-    npm run serve
-else
     nginx -g daemon off;
+else
+    npm run serve
 fi
