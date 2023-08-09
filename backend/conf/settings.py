@@ -204,7 +204,10 @@ MEDIA_ROOT = "media"
 STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
-    }
+    },
+    "default": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage"
+    },
 }
 
 # Default primary key field type
