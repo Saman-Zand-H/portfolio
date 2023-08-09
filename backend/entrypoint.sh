@@ -8,5 +8,5 @@ if [ "$ENVIRONMENT" = "development" ]
 then
 	python manage.py runserver 0.0.0.0:8000
 else
-	hypercorn -c python:hypercorn.config conf.asgi:application
+	daphne -b 0.0.0.0 -p 8000 -e ssl:8000:privateKey=/certs/private.key:certKey=cert.pem conf.asgi:application
 fi
