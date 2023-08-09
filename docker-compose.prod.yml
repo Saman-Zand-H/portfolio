@@ -10,6 +10,7 @@ services:
       - ./backend:/usr/src/app/backend
       - ./backend/staticfiles:/usr/share/nginx/html/static/
       - ./backend/media:/usr/share/nginx/html/media/
+      - /certs:/certs
     depends_on:
       - db
 
