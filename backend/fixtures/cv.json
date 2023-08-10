@@ -3,7 +3,7 @@
     "model": "cv.cv",
     "pk": 1,
     "fields": {
-        "about": "Hi, I'm an accomplished Full-Stack Developer with 3+ years of hands-on experience in Python. During this time, I've successfully delivered a range of projects, from web applications to backend systems, which have deepened my expertise and proficiency in Python development. Additionally, I have 1 year of proven experience in Vue.js, creating engaging user interfaces. My dedication to innovation and problem-solving drives me to stay updated with the latest technologies. Eager to contribute my skills to impactful projects and collaborate with dynamic teams. Samples available upon request. Let's achieve excellence together!",
+        "about": "Hi, I'm an accomplished Full-Stack Developer with 4 years of hands-on experience in Python. During this time, I've successfully delivered a range of projects, from web applications to backend systems, which have deepened my expertise and proficiency in Python development. Additionally, I have 1 year of proven experience in Vue.js, creating engaging user interfaces. My dedication to innovation and problem-solving drives me to stay updated with the latest technologies. Eager to contribute my skills to impactful projects and collaborate with dynamic teams. Samples available upon request. Let's achieve excellence together!",
         "image": "cv_images/saman.jpg",
         "location": "Mashhad"
     }
