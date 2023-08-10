@@ -91,7 +91,7 @@ class Query(graphene.ObjectType):
         )
         return article_qs.first() if article_qs.exists() else None    
     
-    def resolve_articles(self, info):
+    def resolve_articles(self, info, *args, **kwargs):
         articles = Article.objects.prefetch_related("tags").all()
         return articles
     
