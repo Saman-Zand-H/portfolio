@@ -114,12 +114,12 @@
                     </router-link>
                 </div>
                 <div class="mt-2 flex flex-row gap-2 overflow-x-auto">
-                    <div class="h-full w-full" v-for="project in projects" :key="project.slug">
+                    <router-link :to="{ name: 'project', params: { slug: project.slug } }" class="h-full w-full" v-for="project in projects" :key="project.slug">
                         <ProjectPortfolioCard 
                                 v-if="!isEmpty(project.images)"
                                 :backgroundUrl="project.images[0]?.image" 
                             />
-                    </div>
+                    </router-link>
                 </div>
             </div>
             <div class="rounded-3xl w-full col-span-2 animate__animated animate__fadeInUp bg-zinc-800/70 text-white p-6 text-xl text-left">
