@@ -12,7 +12,7 @@ class CVViewset(ReadOnlyModelViewSet):
     
     
 class ProjectsViewset(ReadOnlyModelViewSet):
-    queryset = Project.objects.prefetch_related("tags", "images").all()
+    queryset = Project.objects.prefetch_related("technologies", "images").all()
     serializer_class = ProjectSerializer
     
     
