@@ -221,7 +221,7 @@ export default defineComponent({
                 540: {
                     slidesPerView: 4
                 },
-                770: {
+                800: {
                     slidesPerView: 5
                 },
                 1025: {

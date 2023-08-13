@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
     "whiteelli.tk",
     "samanznd.ir",
     "backend.samanznd.ir",
+    "91.107.129.206"
 ]
 
 SITE_ID = 1
