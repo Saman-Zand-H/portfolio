@@ -97,7 +97,7 @@
                 <span>
                     <h2 class="font-semibold text-lg md:text-2xl">My Blog:</h2>                                                                                                                                                                                                                                                                                                                                                                                                    
                 </span>
-                <router-link :to="{ name: 'blog' }" :aria-label="Blog">
+                <router-link :to="{ name: 'blog' }" aria-label="Blog">
                     <h2 class="font-semibold text-base md:text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
                 </router-link>
             </div>
@@ -125,7 +125,25 @@
             <div class="rounded-3xl w-full col-span-2 animate__animated animate__fadeInUp bg-zinc-800/70 text-white p-6 text-xl text-left">
                 <div class="flex justify-between">
                     <b class="text-lg md:text-2xl">About</b>
-                    <span class="text-zinc-400 text-base md:text-xl">Resume</span>
+                    <Dropdown>
+                        <template #trigger="{ toggle }">
+                            <button class="text-zinc-400 text-base md:text-xl" @click="toggle">
+                                Resume
+                            </button>
+                        </template>
+                        <ul class="text-xs p-2">
+                            <li class="w-full">
+                                <a :href="require('@/assets/en-cv.pdf')" download="saman-zand-h-EN.pdf">
+                                    EN
+                                </a>
+                            </li>
+                            <li class="w-full">
+                                <a :href="require('@/assets/fa-cv.pdf')" download="saman-zand-h-FA.pdf">
+                                    FA
+                                </a>
+                            </li>
+                        </ul>
+                    </Dropdown>
                 </div>
                 <div class="mt-2 text-sm text-zinc-300">
                     <small>{{ cv.about }}</small>
@@ -143,11 +161,12 @@
 
 <script lang="ts">
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
+import BlogPortfolioCard from './BlogPortfolioCard.vue';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import BlogPortfolioCard from './BlogPortfolioCard.vue';
 import HomeSidebar from './HomeSidebar.vue';
 import { mapState, mapActions } from 'vuex';
+import { Dropdown } from 'flowbite-vue';
 import { defineComponent } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import 'swiper/css/navigation';
@@ -162,7 +181,8 @@ export default defineComponent({
         HomeSidebar,
         Swiper,
         SwiperSlide,
-        BlogPortfolioCard
+        BlogPortfolioCard,
+        Dropdown
     },
     computed: {
         ...mapState(

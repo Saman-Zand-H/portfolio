@@ -2,3 +2,4 @@ frontend/node_modules
 **/__pycache__
 backend/staticfiles
 .*
+**/db.sqlite3
