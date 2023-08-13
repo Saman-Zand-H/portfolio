@@ -55,7 +55,7 @@ class Article(models.Model):
         
         ' 
             {
-                (heading_text, heading_id): {#here goes subheadings if they exists},
+                (heading_text, heading_id): {#here goes subheadings if they exist},
                 
                 ...
             }
