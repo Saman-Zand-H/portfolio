@@ -6,10 +6,10 @@ class CommonMarkdown:
     def _convert_markdown(value):
         md = markdown.Markdown(
             extensions=[
-                'extra',
-                'codehilite',
-                'toc',
-                'tables',
+                "extra",
+                "codehilite",
+                "toc",
+                "tables",
             ]
         )
         body = md.convert(value)

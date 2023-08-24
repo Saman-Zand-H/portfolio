@@ -11,15 +11,7 @@ class UserAdmin(UserAdmin):
     fieldsets = (
         (
             None,
-            {
-                "fields": (
-                    "username",
-                    "email",
-                    "first_name",
-                    "last_name",
-                    "picture"
-                )
-            },
+            {"fields": ("username", "email", "first_name", "last_name", "picture")},
         ),
         (
             "Permissions",
@@ -32,22 +24,23 @@ class UserAdmin(UserAdmin):
             },
         ),
     )
-    add_fieldsets = ((
-        None,
-        {
-            "fields": (
-                "username",
-                "email",
-                "first_name",
-                "last_name",
-                "picture",
-                "password1",
-                "password2",
-            ),
-            "classes": "wide",
-        },
-    ), )
+    add_fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "username",
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "picture",
+                    "password1",
+                    "password2",
+                ),
+                "classes": "wide",
+            },
+        ),
+    )
     list_display = ["name", "username"]
     search_fields = ["name", "username"]
     filter_horizontal = ["groups", "user_permissions"]
-    

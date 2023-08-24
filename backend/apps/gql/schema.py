@@ -12,9 +12,9 @@ from blog.models import Article
 class ExtendedConnection(graphene.Connection):
     class Meta:
         abstract = True
-    
+
     count = graphene.Int()
-    
+
     def resolve_count(self, info, **kwargs):
         return self.length
 
@@ -22,10 +22,7 @@ class ExtendedConnection(graphene.Connection):
 class ArticleFilterset(FilterSet):
     class Meta:
         model = Article
-        fields = {
-            "tags__name": ('exact', 'contains'),
-            "slug": ("exact",)
-        }
+        fields = {"tags__name": ("exact", "contains"), "slug": ("exact",)}
 
 
 class ArticleNode(DjangoObjectType):
@@ -33,7 +30,7 @@ class ArticleNode(DjangoObjectType):
     tags = graphene.List(graphene.JSONString)
     # toc stands for table_of_contents
     toc = graphene.JSONString()
-    
+
     class Meta:
         model = Article
         filterset_class = ArticleFilterset
@@ -49,51 +46,43 @@ class ArticleNode(DjangoObjectType):
             "user",
             "article",
             "updated_at",
-            "created_at"
+            "created_at",
         ]
-        
+
     def resolve_toc(self, info):
         return self.parse_contents()
-        
+
     def resolve_thumbnail(self, info):
         return info.context.build_absolute_uri(self.thumbnail.url)
-        
+
     def resolve_user(self, info):
-        user = self.user        
+        user = self.user
         return {
             "first_name": user.first_name,
             "last_name": user.last_name,
             "username": user.username,
-            "picture": user.picture.url if user.picture else ""
+            "picture": user.picture.url if user.picture else "",
         }
 
     def resolve_tags(self, info):
         return [
-            {
-                "name": i.name,
-                "slug": i.slug
-            }
+            {"name": i.name, "slug": i.slug}
             for i in self.tags.all()
             if self.tags.exists()
         ]
-        
+
 
 class Query(graphene.ObjectType):
     article = graphene.Field(ArticleNode, slug=graphene.String())
     articles = DjangoFilterConnectionField(ArticleNode)
-    
+
     def resolve_article(self, info, slug):
-        article_qs = (
-            Article
-            .objects
-            .prefetch_related("tags")
-            .filter(slug=slug)
-        )
-        return article_qs.first() if article_qs.exists() else None    
-    
+        article_qs = Article.objects.prefetch_related("tags").filter(slug=slug)
+        return article_qs.first() if article_qs.exists() else None
+
     def resolve_articles(self, info, *args, **kwargs):
         articles = Article.objects.prefetch_related("tags").all()
         return articles
-    
-    
+
+
 schema = graphene.Schema(query=Query)

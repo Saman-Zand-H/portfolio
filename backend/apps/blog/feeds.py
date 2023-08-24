@@ -17,40 +17,35 @@ class ArticleFeed(Feed):
     link = "/blog/"
     description = "Latest articles from my blog"
     feed_type = CustomRSS
-    
+
     def items(self):
         return (
-            Article
-            .objects
-            .prefetch_related("tags")
-            .all()
-            .order_by("-updated_at")[:20]
+            Article.objects.prefetch_related("tags").all().order_by("-updated_at")[:20]
         )
-    
+
     def item_title(self, item):
         return item.title.title()
-    
+
     def item_pubdate(self, item):
         return item.created_at
-    
+
     def item_updateddate(self, item):
         return item.updated_at
-        
+
     def author_name(self):
         return "Saman Zand"
-    
+
     def item_description(self, item):
         return truncatewords(CommonMarkdown.get_markdown(item.article), 40)
-    
+
     def item_content(self, item):
         return item.item
 
     def feed_copyright(self):
         return f"Copyright©{timezone.now().year}"
-    
+
     def item_link(self, item):
         return f"https://samanznd.ir/blog/{item.slug}"
-    
+
     def item_guid(self, item):
         return item.slug
-        
