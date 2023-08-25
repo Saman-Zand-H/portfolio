@@ -8,7 +8,7 @@ from cv.models import CV, Project, Technology
 from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerializer
 
 
-@override_settings(SECURE_SSL_REDIRECT=False)
+@override_settings(SECURE_SSL_REDIRECT=False, DEBUG=True)
 class TestCV(APITestCase):
     fixtures = ["fixtures/cv.json"]
 
@@ -22,7 +22,6 @@ class TestCV(APITestCase):
         serialized_data = CVSerializer(CV.objects.all(), many=True)
         serialized_data.context["request"] = response.wsgi_request
         expected_data = serialized_data.data
-        print(response.content)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(expected_data, response.json())
