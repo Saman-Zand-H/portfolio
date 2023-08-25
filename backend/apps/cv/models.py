@@ -16,7 +16,7 @@ def image_validator(file):
 # this is gonna be a singletone model
 class CV(models.Model):
     about = models.TextField()
-    image = models.ImageField(upload_to="cv_images")
+    image = models.ImageField(upload_to="cv_images", blank=True, null=True)
     location = models.CharField(max_length=50, default=_("Mashhad"))
 
     def save(self, *args, **kwargs):

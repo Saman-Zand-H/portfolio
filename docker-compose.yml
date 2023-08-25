@@ -6,6 +6,7 @@ services:
     environment:
       - "ENVIRONMENT=development"
       - "DEBUG=1"
+      - "DB_HOST:db"
     ports: 
       - "8000:8000"
     volumes:

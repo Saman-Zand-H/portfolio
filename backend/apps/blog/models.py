@@ -1,6 +1,7 @@
 import os
 from django.db import models
 from django.conf import settings
+from django.utils.text import slugify
 from django.core.exceptions import ValidationError
 
 from mdeditor.fields import MDTextField
@@ -58,13 +59,12 @@ class Article(models.Model):
             }
         '
 
-        Returns:
-            Dict[tuple: Dict]: a representation of contents in a tree like dict
+        :returns:
+            Dict{tuple: Dict}: a representation of contents in a tree like dict
         """
         results = {}
 
         def dfs(content, ctx=results):
-            print(f"{content} - {content.subheadings.exists()}")
             if not ctx.get(content, False):
                 ctx[f"{content.heading_text},{content.heading_id}"] = {}
             if not content.subheadings.exists():
@@ -83,6 +83,8 @@ class Article(models.Model):
         return results
 
     def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
         self.slug = self.slug.lower()
         super().save(*args, **kwargs)
 

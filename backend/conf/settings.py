@@ -123,7 +123,7 @@ DATABASES = {
         "NAME": env.str("DB_NAME", "postgres"),
         "USER": env.str("DB_USER", "postgres"),
         "PASSWORD": env.str("DB_PASSWORD", "postgres"),
-        "HOST": env.str("DB_HOST", "db"),
+        "HOST": env.str("DB_HOST", "localhost"),
         "PORT": env.int("DB_PORT", 5432),
     }
 }

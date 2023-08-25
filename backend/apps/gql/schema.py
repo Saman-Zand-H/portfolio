@@ -1,10 +1,8 @@
-import json
 import graphene
 from graphene_django import DjangoObjectType
 from graphene import relay
 from django_filters.filterset import FilterSet
 from graphene_django.filter.fields import DjangoFilterConnectionField
-from django.shortcuts import get_object_or_404
 
 from blog.models import Article
 

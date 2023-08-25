@@ -11,6 +11,8 @@ services:
       - ./backend/staticfiles:/usr/share/nginx/html/static/
       - ./backend/media:/usr/share/nginx/html/media/
       - /certs:/certs
+    environment:
+      - "DB_HOST=db"
     depends_on:
       - db
 
