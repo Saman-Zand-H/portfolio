@@ -2,9 +2,9 @@ from rest_framework import status
 from django.urls import reverse_lazy
 from rest_framework.test import APITestCase
 
-from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerializer
 from api.utils import random_str
 from cv.models import CV, Project, Technology
+from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerializer
 
 
 class TestCV(APITestCase):
