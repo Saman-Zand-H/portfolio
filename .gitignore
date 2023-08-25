@@ -1,5 +1,5 @@
 frontend/node_modules
-**/__pycache__
+__pycache__
 backend/staticfiles
-.*
-**/db.sqlite3
+.env
+backend/db.sqlite3

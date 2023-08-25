@@ -13,6 +13,7 @@ services:
       - /certs:/certs
     environment:
       - "DB_HOST=db"
+      - "DJANGO_SETTINGS_MODULE=conf.settings.production"
     depends_on:
       - db
 

@@ -1,8 +1,8 @@
 python manage.py collectstatic --no-input
 python manage.py migrate
-python manage.py loaddata fixtures/cv.json
-python manage.py loaddata fixtures/users.json
-python manage.py loaddata fixtures/blog.json
+python manage.py loaddata fixtures/cv.json \
+	fixtures/users.json fixtures/blog.json
+python manage.py test
 
 if [ "$ENVIRONMENT" = "development" ]
 then
