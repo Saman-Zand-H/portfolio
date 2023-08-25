@@ -8,7 +8,7 @@ from cv.models import CV, Project, Technology
 from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerializer
 
 
-@override_settings(SECURE_SSL_REDIRECT=False, DEBUG=True)
+@override_settings(SECURE_SSL_REDIRECT=False)
 class TestCV(APITestCase):
     fixtures = ["fixtures/cv.json"]
 
