@@ -8,19 +8,12 @@ from cv.models import CV, Project, Technology
 from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerializer
 
 
+@override_settings(SECURE_SSL_REDIRECT=False)
 class TestCV(APITestCase):
     fixtures = ["fixtures/cv.json"]
 
-    def setUp(self):
-        self.settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
-        self.settings_manager.enable()
-        
-    def tearDown(self) -> None:
-        self.settings_manager.disable()
-
     def test_cv_is_singletone(self):
         self.assertEqual(CV.objects.count(), 1)
-        print(self.settings)
 
     def test_list_cv_success(self):
         url = reverse_lazy("api:cv-list")
@@ -61,15 +54,9 @@ class TestCV(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
+@override_settings(SECURE_SSL_REDIRECT=False)
 class TestProject(APITestCase):
     fixtures = ["fixtures/cv.json"]
-
-    def setUp(self):
-        self.settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
-        self.settings_manager.enable()
-        
-    def tearDown(self) -> None:
-        self.settings_manager.disable()
 
     def test_list_projects_success(self):
         url = reverse_lazy("api:project-list")
@@ -110,15 +97,9 @@ class TestProject(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
+@override_settings(SECURE_SSL_REDIRECT=False)
 class TestTechnology(APITestCase):
-    fixtures = ["fixtures/cv.json"]
-
-    def setUp(self):
-        self.settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
-        self.settings_manager.enable()
-        
-    def tearDown(self) -> None:
-        self.settings_manager.disable()
+    fixtures = ["fixtures/cv.json"] 
 
     def test_list_technologies_success(self):
         url = reverse_lazy("api:technology-list")
