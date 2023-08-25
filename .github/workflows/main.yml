@@ -18,7 +18,7 @@ jobs:
 
       - name: Run Backend Tests (Production)
         run: |
-          docker-compose -f docker-compose.prod.yml exec backend \
+          docker-compose -f docker-compose.prod.yml exec -T backend \
             python manage.py test --settings=conf.settings.local  # temprorarily
       
       - name: Stop Containers
