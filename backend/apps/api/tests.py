@@ -1,5 +1,6 @@
 from rest_framework import status
 from django.urls import reverse_lazy
+from django.test import override_settings
 from rest_framework.test import APITestCase
 
 from api.utils import random_str
@@ -9,6 +10,10 @@ from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerial
 
 class TestCV(APITestCase):
     fixtures = ["fixtures/cv.json"]
+    
+    def setUp(self):
+        settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
+        settings_manager.enable()
 
     def test_cv_is_singletone(self):
         self.assertEqual(CV.objects.count(), 1)
