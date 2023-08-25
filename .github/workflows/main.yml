@@ -4,16 +4,13 @@ on:
       - master
 
 jobs:
-  builds:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - 
-        name: Building Images (Production)
-        uses: isbang/compose-actions@v1.5.1
+      - uses: isbang/compose-actions@v1.5.1
+      - name: Building Images (Production)
         run: |
           docker-compose -f docker-compose.prod.yml up --build -d
-      -
-        name: Running Backend Tests (Production)
-        uses: isbang/compose-actions@v1.5.1
+      - name: Running Backend Tests (Production)
         run: |
           docker-compose exec backend python manage.py test
