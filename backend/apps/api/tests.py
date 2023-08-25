@@ -22,6 +22,7 @@ class TestCV(APITestCase):
         serialized_data = CVSerializer(CV.objects.all(), many=True)
         serialized_data.context["request"] = response.wsgi_request
         expected_data = serialized_data.data
+        print(response.content)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(expected_data, response.json())
@@ -99,7 +100,7 @@ class TestProject(APITestCase):
 
 @override_settings(SECURE_SSL_REDIRECT=False)
 class TestTechnology(APITestCase):
-    fixtures = ["fixtures/cv.json"] 
+    fixtures = ["fixtures/cv.json"]
 
     def test_list_technologies_success(self):
         url = reverse_lazy("api:technology-list")
