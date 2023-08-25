@@ -14,6 +14,7 @@ services:
     environment:
       - "DB_HOST=db"
       - "DJANGO_SETTINGS_MODULE=conf.settings.production"
+      - "SECRET_KEY=${SECRET_KEY}"
     depends_on:
       - db
 
