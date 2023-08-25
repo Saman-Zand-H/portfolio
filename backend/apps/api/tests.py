@@ -10,13 +10,17 @@ from api.serializers.cv import CVSerializer, ProjectSerializer, TechnologySerial
 
 class TestCV(APITestCase):
     fixtures = ["fixtures/cv.json"]
-    
+
     def setUp(self):
-        settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
-        settings_manager.enable()
+        self.settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
+        self.settings_manager.enable()
+        
+    def tearDown(self) -> None:
+        self.settings_manager.disable()
 
     def test_cv_is_singletone(self):
         self.assertEqual(CV.objects.count(), 1)
+        print(self.settings)
 
     def test_list_cv_success(self):
         url = reverse_lazy("api:cv-list")
@@ -60,6 +64,13 @@ class TestCV(APITestCase):
 class TestProject(APITestCase):
     fixtures = ["fixtures/cv.json"]
 
+    def setUp(self):
+        self.settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
+        self.settings_manager.enable()
+        
+    def tearDown(self) -> None:
+        self.settings_manager.disable()
+
     def test_list_projects_success(self):
         url = reverse_lazy("api:project-list")
         # in order to get the right path for media and staticfiles
@@ -101,6 +112,13 @@ class TestProject(APITestCase):
 
 class TestTechnology(APITestCase):
     fixtures = ["fixtures/cv.json"]
+
+    def setUp(self):
+        self.settings_manager = override_settings(SECURE_SSL_REDIRECT=False)
+        self.settings_manager.enable()
+        
+    def tearDown(self) -> None:
+        self.settings_manager.disable()
 
     def test_list_technologies_success(self):
         url = reverse_lazy("api:technology-list")

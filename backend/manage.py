@@ -8,7 +8,7 @@ def main():
     """Run administrative tasks."""
     env = Env()
     env.read_env()
-    
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
