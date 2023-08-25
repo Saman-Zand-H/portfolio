@@ -1,3 +1,5 @@
+name: Docker-Compose
+
 on:
   push:
     branches:
@@ -6,11 +8,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: isbang/compose-actions@v1.5.1
-      - name: Building Images (Production)
-        run: |
-          docker-compose -f docker-compose.prod.yml up --build -d
-      - name: Running Backend Tests (Production)
-        run: |
-          docker-compose exec backend python manage.py test
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Docker-Compose Build (Production)
+        run: docker-compose -f docker-compose.prod.yml up --build -d
+
+      - name: Run Backend Tests (Production)
+        run: docker-compose exec backend python manage.py test
+      
+      - name: Stop Containers
+        run: docker-compose -f docker-compose.prod.yml down
