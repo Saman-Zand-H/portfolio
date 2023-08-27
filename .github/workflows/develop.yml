@@ -1,0 +1,32 @@
+name: CI/CD ( Development )
+
+on:
+  push:
+    branches:
+      - develop
+      - develop/*
+  pull_request:
+    branches:
+      - develop
+      - develop/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Docker-Compose Build
+        run: |
+          docker-compose up --build -d
+
+      - name: Stop Containers
+        run: docker-compose down
+
+      - name: Run Backend Tests
+        run: |
+          docker-compose -d --no-deps db backend \
+          && docker-compose exec -T backend \
+              python manage.py test --settings=conf.settings.local
