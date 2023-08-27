@@ -1,6 +1,6 @@
 # Portfolio
 
-![CI/CD](![Build](https://github.com/saman-zand-h/portfolio/actions/workflows/main.yml/badge.svg))
+![main workflow](https://github.com/saman-zand-h/portfolio/actions/workflows/main.yml/badge.svg)
 
 This is my personal portfolio. It uses `Vue.js` as the front-end framework, `Django` as the back-end framework, `REST` and `GraphQL` for API, `Postgresql` as the database, `Daphne` as the webserver for serving HTTP 2 requests, `NGINX` as the reverse proxy, and `docker-compose.prod.yml` for managing containers.
 
