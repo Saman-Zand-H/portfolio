@@ -5,9 +5,6 @@ on:
     branches:
       - master
 
-env:
-  SECRET_KEY: django-insecure-knb8h8w!zv%4=4kff2h60)n=-%e(c6sn4j_@s$@cbo2-ee(0u#
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +22,9 @@ jobs:
 
       - name: Run Backend Tests (Production)
         run: |
-          docker-compose up -d --no-deps db backend \
+          echo $SECRET_KEY \
+          && docker-compose up -d --no-deps db backend \
           && docker-compose -f docker-compose.prod.yml exec -T backend \
               python manage.py test --settings=conf.settings.production
+        env:
+          SECRET_KEY: django-insecure-knb8h8w!zv%4=4kff2h60)n=-%e(c6sn4j_@s$@cbo2-ee(0u#
