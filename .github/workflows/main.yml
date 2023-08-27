@@ -24,8 +24,6 @@ jobs:
         run: docker-compose -f docker-compose.prod.yml down
 
       - name: Run Backend Tests (Production)
-        with:
-          SECRET_KEY: ${{env.SECRET_KEY}}
         run: |
           docker-compose up -d --no-deps db backend \
           && docker-compose -f docker-compose.prod.yml exec -T backend \
