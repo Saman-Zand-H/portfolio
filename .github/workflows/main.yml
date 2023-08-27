@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
     steps:
       - name: Checkout
@@ -21,8 +23,6 @@ jobs:
         run: docker-compose -f docker-compose.prod.yml down
 
       - name: Run Backend Tests (Production)
-        env: 
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           docker-compose up -d --no-deps db backend \
           && docker-compose -f docker-compose.prod.yml exec -T backend \
