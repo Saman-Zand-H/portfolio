@@ -17,12 +17,13 @@ jobs:
         run: |
           docker-compose -f docker-compose.prod.yml up --build -d
 
+      - name: Stop Containers (Production)
+        run: docker-compose -f docker-compose.prod.yml down
+
       - name: Run Backend Tests (Production)
         env: 
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          docker-compose -f docker-compose.prod.yml exec -T backend \
+          docker-compose up --no-deps db backend -d \
+          && docker-compose -f docker-compose.prod.yml exec -T backend \
               python manage.py test --settings=conf.settings.production
-
-      - name: Stop Containers (Production)
-        run: docker-compose -f docker-compose.prod.yml down
