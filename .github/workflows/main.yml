@@ -23,8 +23,8 @@ jobs:
       - name: Run Backend Tests (Production)
         run: |
           echo $SECRET_KEY \
-          && docker-compose up -d --no-deps db backend \
+          && docker-compose -f docker-compose.prod.yml up -d --no-deps db backend \
           && docker-compose -f docker-compose.prod.yml exec -T backend \
               python manage.py test --settings=conf.settings.production
         env:
-          SECRET_KEY: django-insecure-knb8h8w!zv%4=4kff2h60)n=-%e(c6sn4j_@s$@cbo2-ee(0u#
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
