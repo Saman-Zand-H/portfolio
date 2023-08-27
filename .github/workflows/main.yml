@@ -22,8 +22,7 @@ jobs:
 
       - name: Run Backend Tests (Production)
         run: |
-          echo $SECRET_KEY \
-          && docker-compose -f docker-compose.prod.yml up -d --no-deps db backend \
+          docker-compose -f docker-compose.prod.yml up -d --no-deps db backend \
           && docker-compose -f docker-compose.prod.yml exec -T backend \
               python manage.py test --settings=conf.settings.production
         env:
