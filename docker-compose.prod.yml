@@ -12,7 +12,7 @@ services:
       - ./backend/media:/usr/share/nginx/html/media/
       - /certs:/certs
     env_file:
-      - .env
+      - backend/.env
     environment:
       - "DB_HOST=db"
       - "DJANGO_SETTINGS_MODULE=conf.settings.production"
