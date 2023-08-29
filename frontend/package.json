@@ -25,6 +25,7 @@
     "vee-validate": "^4.10.8",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
+    "vue-meta": "^2.4.0",
     "vue-router": "^4.0.3",
     "vue-showdown": "^4.1.1",
     "vue-sweetalert2": "^5.0.5",

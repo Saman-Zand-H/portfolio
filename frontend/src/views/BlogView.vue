@@ -48,10 +48,10 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import { mapState, mapActions } from 'vuex';
-    import HomeNavbar from '@/components/HomeNavbar.vue';
-    import Footer from '@/components/Footer.vue'
-    import Paginator from '@/components/Paginator.vue';
-    import BlogPortfolioCard from '@/components/BlogPortfolioCard.vue';
+    import HomeNavbar from '@/components/General/Navbar.vue';
+    import Footer from '@/components/General/Footer.vue'
+    import Paginator from '@/components/General/Paginator.vue';
+    import BlogPortfolioCard from '@/components/General/ArticleCard.vue';
     import { toInteger } from 'lodash';
 
     export default defineComponent({

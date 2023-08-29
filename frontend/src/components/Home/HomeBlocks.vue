@@ -13,10 +13,10 @@
                     <span class="text-3xl sm:text-4xl lg:text-5xl" v-for="word in 'Bringing Your Ideas To Life Through a FullStack Development'.split(' ')">
                         {{ word }}
                     </span>
-                    <span class="rounded-full mt-2 bg-violet-500 hover:bg-violet-500/80 hover:cursor-pointer transition-colors duration-200 py-1 px-3 ms-2 flex items-center">
+                    <a href="mailto:samanzandh@gmail.com" class="rounded-full mt-2 bg-violet-500 hover:bg-violet-500/80 transition-colors duration-200 py-1 px-3 ms-2 flex items-center">
                         Hire me
                         &#128075;
-                    </span>
+                    </a>
                 </div>
                 <!-- The vibrant boxes -->
                 <div class="grid grid-cols-3 gap-4 row-span-1 xl:row-span-3 h-full w-full bg-transparent text-center">
@@ -53,8 +53,8 @@
                                 <span class="text-lg md:text-xl">Based in :</span>
                                 <b class="text-base md:text-xl">{{ cv.location }}</b>
                             </div>
-                            <div class="rounded-3xl overflow-hidden w-full h-full bg-cover" :style="`background-image: url(${require('../assets/mashhadMap.png')})`">
-                                <img class="w-full h-full lg:hidden" alt="Mashhad Map" src="../assets/mashhadMap.png">
+                            <div class="rounded-3xl overflow-hidden w-full h-full bg-cover" :style="`background-image: url(${require('@/assets/mashhadMap.png')})`">
+                                <img class="w-full h-full lg:hidden" alt="Mashhad Map" src="@/assets/mashhadMap.png">
                             </div>
                         </div>
                         <div class="row-span-1 animate__animated animate__fadeInUp bg-zinc-800/70 rounded-3xl text-white flex justify-between gap-2 items-center flex-wrap px-6 py-6 lg:py-0">
@@ -101,7 +101,7 @@
                     <h2 class="font-semibold text-base md:text-xl text-zinc-500 hover:text-zinc-500/80 hover:cursor-pointer">View All</h2>
                 </router-link>
             </div>
-            <div class="w-full p-5">
+            <div class="w-full py-5">
                 <BlogPortfolioCard v-for="article in articles" :article="article" />
             </div>
         </div>
@@ -160,8 +160,8 @@
 </style>
 
 <script lang="ts">
+import BlogPortfolioCard from '@/components/General/ArticleCard.vue';
 import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
-import BlogPortfolioCard from './BlogPortfolioCard.vue';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import HomeSidebar from './HomeSidebar.vue';

@@ -41,9 +41,9 @@
 </template>
 
 <script lang="ts">
-    import HomeNavbar from '@/components/HomeNavbar.vue';
+    import HomeNavbar from '@/components/General/Navbar.vue';
     import { defineComponent } from 'vue';
-    import TableOfContents from '@/components/TableOfContents.vue';
+    import TableOfContents from '@/components/Articles/TableOfContents.vue';
     import hljs from 'highlight.js';
     import isEmpty from 'lodash/isEmpty';
     // @ts-ignore
@@ -55,7 +55,7 @@
     import moment from 'moment';
     // @ts-ignore
     import fa from 'moment/locale/fa';
-    import Footer from '@/components/Footer.vue';
+    import Footer from '@/components/General/Footer.vue';
     import { blogInterface } from '@/store';
 
     export default defineComponent({

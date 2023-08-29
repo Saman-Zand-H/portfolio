@@ -11,9 +11,9 @@
 <script lang="ts">
     import { mapActions, mapState } from 'vuex';
     import { defineComponent } from 'vue';
-    import Footer from '@/components/Footer.vue';
-    import HomeNavbar from '@/components/HomeNavbar.vue';
-    import ProjectCard from '@/components/ProjectCard.vue';
+    import Footer from '@/components/General/Footer.vue';
+    import HomeNavbar from '@/components/General/Navbar.vue';
+    import ProjectCard from '@/components/General/ProjectCard.vue';
 
     export default defineComponent({
         name: "ProjectsListView",

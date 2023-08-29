@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HomeBlocks from '@/components/HomeBlocks.vue'; // @ is an alias to /src
+import HomeBlocks from '@/components/Home/HomeBlocks.vue'; // @ is an alias to /src
 
 @Options({
     components: {

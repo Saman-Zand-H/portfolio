@@ -64,9 +64,9 @@
     import 'swiper/css/navigation';
     import { defineComponent } from 'vue';
     import { mapState, mapActions } from 'vuex';
-    import Footer from '@/components/Footer.vue';
+    import Footer from '@/components/General/Footer.vue';
     import { Swiper, SwiperSlide } from 'swiper/vue';
-    import HomeNavbar from '@/components/HomeNavbar.vue';
+    import HomeNavbar from '@/components/General/Navbar.vue';
     import projectsInterface from '@/store/types/projects';
     import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 

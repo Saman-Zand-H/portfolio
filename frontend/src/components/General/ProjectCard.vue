@@ -3,7 +3,7 @@
         <div class="w-2/3 rounded-3xl overflow-hidden self-center shadow-lg">
             <img 
                     class="w-full aspect-square" 
-                    :src="!isEmpty(project.images) ? project.images[0].image : require('../assets/logo.png')"
+                    :src="!isEmpty(project.images) ? project.images[0].image : require('@/assets/logo.png')"
                 >
         </div>
         <div class="flex flex-col gap-2">

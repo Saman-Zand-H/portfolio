@@ -17,7 +17,7 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import Content from '@/components/Content.vue'
+    import Content from '@/components/Articles/Content.vue'
     import { isEmpty } from 'lodash';
 
     export default defineComponent({
