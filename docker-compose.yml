@@ -36,7 +36,6 @@ services:
       - "8080:8080"
     volumes:
       - ./frontend:/usr/src/app/frontend
-      - ./backend/media:/usr/share/nginx/html/media/
 
 volumes:
   postgres_data:

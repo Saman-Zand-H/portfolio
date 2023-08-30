@@ -102,7 +102,7 @@
                 </router-link>
             </div>
             <div class="w-full py-5">
-                <BlogPortfolioCard v-for="article in articles" :article="article" />
+                <ArticleCard v-for="article in articles" :article="article" />
             </div>
         </div>
         <div class="lg:grid w-full lg:grid-cols-5 flex flex-col gap-3 mt-3">
@@ -160,7 +160,7 @@
 </style>
 
 <script lang="ts">
-import BlogPortfolioCard from '@/components/General/ArticleCard.vue';
+import ArticleCard from '@/components/General/ArticleCard.vue';
 import ProjectCard from './ProjectCard.vue';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -181,7 +181,7 @@ export default defineComponent({
         HomeSidebar,
         Swiper,
         SwiperSlide,
-        BlogPortfolioCard,
+        ArticleCard,
         Dropdown
     },
     computed: {
