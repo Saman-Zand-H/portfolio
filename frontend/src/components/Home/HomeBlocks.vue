@@ -115,7 +115,7 @@
                 </div>
                 <div class="mt-2 flex flex-row gap-2 overflow-x-auto">
                     <router-link :to="{ name: 'project', params: { slug: project.slug } }" :aria-label="project.slug" class="h-full w-full" v-for="project in projects" :key="project.slug">
-                        <ProjectPortfolioCard 
+                        <ProjectCard 
                                 v-if="!isEmpty(project.images)"
                                 :backgroundUrl="project.images[0]?.image" 
                             />
@@ -161,7 +161,7 @@
 
 <script lang="ts">
 import BlogPortfolioCard from '@/components/General/ArticleCard.vue';
-import ProjectPortfolioCard from './ProjectPortfolioCard.vue';
+import ProjectCard from './ProjectCard.vue';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import HomeSidebar from './HomeSidebar.vue';
@@ -177,7 +177,7 @@ import 'swiper/css';
 export default defineComponent({
     name: 'HomeBlocks',
     components: {
-        ProjectPortfolioCard,
+        ProjectCard,
         HomeSidebar,
         Swiper,
         SwiperSlide,

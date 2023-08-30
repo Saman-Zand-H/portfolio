@@ -10,9 +10,9 @@
 </template>
 
 <script lang="ts">
-    import { Options, Vue } from 'vue-class-component';
-
-    @Options({
+    import { defineComponent } from 'vue'
+    export default defineComponent({
+        name: 'ProjectCard',
         props: {
             backgroundUrl: {
                 type: String,
@@ -21,9 +21,4 @@
             }
         }
     })
-
-    export default class ProjectPortfolioCard extends Vue {
-        backgroundUrl!: String
-        text!: String
-    }
 </script>
