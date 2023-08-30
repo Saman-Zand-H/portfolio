@@ -2,7 +2,7 @@ python manage.py collectstatic --no-input
 python manage.py migrate
 python manage.py loaddata fixtures/cv.json \
 	fixtures/users.json fixtures/blog.json
-python manage.py test
+python manage.py test --settings=conf.settings.production
 
 if [ "$ENVIRONMENT" = "development" ]
 then

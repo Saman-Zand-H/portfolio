@@ -3,7 +3,7 @@ FROM node:18-alpine
 WORKDIR /usr/src/app/frontend
 
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm i -g vue && npm i
 
 COPY . .
 

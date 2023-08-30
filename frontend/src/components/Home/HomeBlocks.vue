@@ -231,10 +231,12 @@ export default defineComponent({
         }
     },
     async beforeMount() {
-        await this.update_cv()
-        await this.update_projects()
-        await this.update_technologies()
-        await this.get_preview()
+        Promise.all([
+            this.update_cv(),
+            this.update_projects(),
+            this.update_technologies(),
+            this.get_preview()
+        ])
     }
 })
 </script>

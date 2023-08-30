@@ -18,9 +18,10 @@
 </template>
 
 <script lang="ts">
-    import { Options, Vue } from 'vue-class-component'
+    import { defineComponent } from 'vue';
 
-    @Options({
+    export default defineComponent({
+        name: 'HomeSidebar',
         props: {
             isActive: {
                 type: Boolean,
@@ -48,8 +49,4 @@
             }
         }
     })
-
-    export default class HomeSidebar extends Vue {
-        isActive!: Boolean
-    }
 </script>
