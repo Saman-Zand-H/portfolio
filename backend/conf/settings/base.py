@@ -1,4 +1,5 @@
-import os, sys
+from sentry_sdk.integrations.django import DjangoIntegration
+import os, sys, sentry_sdk
 from pathlib import Path
 from environs import Env
 
@@ -112,7 +113,6 @@ MEDIA_ROOT = "media"
 
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -197,3 +197,13 @@ MDEDITOR_CONFIGS = {
         "language": "en",
     }
 }
+
+
+# Sentry Configurations
+SENTRY_DSN = env.str("SENTRY_DSN")
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    integrations=[DjangoIntegration],
+    traces_sample_rate=1.0,
+    send_default_ppi=True
+)
