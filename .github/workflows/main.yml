@@ -27,6 +27,6 @@ jobs:
         run: |
           docker-compose -f docker-compose.prod.yml up -d --no-deps db backend \
           && docker-compose -f docker-compose.prod.yml exec -T backend \
-              python manage.py test --settings=conf.settings.production
+              python manage.py test --no-input --settings=conf.settings.production
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
