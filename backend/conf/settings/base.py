@@ -1,5 +1,4 @@
-from sentry_sdk.integrations.django import DjangoIntegration
-import os, sys, sentry_sdk
+import os, sys
 from pathlib import Path
 from environs import Env
 
@@ -69,7 +68,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware"
 ]
 
 ROOT_URLCONF = "conf.urls"
@@ -197,14 +196,3 @@ MDEDITOR_CONFIGS = {
         "language": "en",
     }
 }
-
-
-# Sentry Configurations
-SENTRY_DSN = env.str("SENTRY_DSN")
-sentry_sdk.init(
-    dsn=SENTRY_DSN,
-    integrations=[DjangoIntegration()],
-    traces_sample_rate=1.0,
-    send_default_pii=True,
-    profiles_sample_rate=1.0,
-)
