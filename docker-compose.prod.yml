@@ -15,6 +15,7 @@ services:
       - "DB_HOST=db"
       - "DJANGO_SETTINGS_MODULE=conf.settings.production"
       - "SECRET_KEY=${SECRET_KEY}"
+      - "SENTRY_DSN=${SENTRY_DSN}"
     depends_on:
       - db
 

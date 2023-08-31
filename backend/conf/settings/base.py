@@ -203,7 +203,8 @@ MDEDITOR_CONFIGS = {
 SENTRY_DSN = env.str("SENTRY_DSN")
 sentry_sdk.init(
     dsn=SENTRY_DSN,
-    integrations=[DjangoIntegration],
+    integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
-    send_default_ppi=True
+    send_default_pii=True,
+    profile_sample_rate=1.0
 )
